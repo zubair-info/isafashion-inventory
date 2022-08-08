@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\CompanyName;
 use App\Models\Kapor;
+use App\Models\LekraBrand;
 use App\Models\MakingKnittingSend;
 use App\Models\Suta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use PDF;
 
 class MakingKnittingSendController extends Controller
 {
@@ -20,14 +22,14 @@ class MakingKnittingSendController extends Controller
         $all_brand_name = Brand::get();
         $all_suta_name = Suta::get();
         $all_kapor_name = Kapor::get();
+        $all_lekra_brand_name = LekraBrand::get();
         // dd($all_company_name);
         // die();
-        return view('admin.making.knitting-send.index', compact('all_company_name', 'all_brand_name', 'all_suta_name', 'all_kapor_name'));
+        return view('admin.making.knitting-send.index', compact('all_company_name', 'all_brand_name', 'all_suta_name', 'all_kapor_name', 'all_lekra_brand_name'));
     }
 
     function store(Request $request)
     {
-        // dd($request);
         MakingKnittingSend::insert([
             'send_chalan_id' => $request->send_chalan_id,
             'date' =>  $request->date,
@@ -58,14 +60,25 @@ class MakingKnittingSendController extends Controller
 
     function edit($knitting_send_id)
     {
-        // echo $knitting_send_id;
+        $all_company_name = CompanyName::get();
+        $all_brand_name = Brand::get();
+        $all_suta_name = Suta::get();
+        $all_kapor_name = Kapor::get();
+        $all_lekra_brand_name = LekraBrand::get();
         $knitting_send_id = MakingKnittingSend::find($knitting_send_id);
-        return view('admin.making.knitting-send.edit', compact('knitting_send_id'));
+        return view('admin.making.knitting-send.edit', [
+            'knitting_send_id' => $knitting_send_id,
+            'all_lekra_brand_name' => $all_lekra_brand_name,
+            'all_brand_name' => $all_brand_name,
+            'all_suta_name' => $all_suta_name,
+            'all_lekra_brand_name' => $all_lekra_brand_name,
+            'all_kapor_name' => $all_kapor_name,
+            'all_company_name' => $all_company_name
+        ]);
     }
 
     function update(Request $request)
     {
-        // dd($request);
         MakingKnittingSend::find($request->id)->update([
             'send_chalan_id' => $request->send_chalan_id,
             'date' =>  $request->date,
@@ -79,7 +92,7 @@ class MakingKnittingSendController extends Controller
             'lekra_cartoon' => $request->lekra_cartoon,
             'lekra_rate' => $request->lekra_rate,
             'send_company_name' => $request->send_company_name,
-            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         $notification = array(
             'message' => 'Making Knitting Send Update Sucessfully!',
@@ -89,10 +102,28 @@ class MakingKnittingSendController extends Controller
     }
 
     // MakingKnittingSend delete
-    public function destroy($id)
+    function destroy($id)
     {
-        // echo $user_id;
         MakingKnittingSend::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function knittingSendgeneratePDF($knitting_send_id)
+    {
+        $pdf = PDF::loadView('admin.making.knitting-send.invoice', [
+            'knitting_send_id' => $knitting_send_id
+        ]);
+
+
+        return $pdf->download('makingSend.pdf');
+    }
+    function knittingSendgeneratePDFview($knitting_send_id)
+    {
+        $pdf = PDF::loadView('admin.making.knitting-send.invoice', [
+            'knitting_send_id' => $knitting_send_id
+        ]);
+        return view('admin.making.knitting-send.invoice', [
+            'knitting_send_id' => $knitting_send_id
+        ]);
     }
 }

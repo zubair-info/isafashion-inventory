@@ -42,19 +42,35 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Name of Suta</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="name_of_suta" class="form-control" value="{{ $knitting_send_id->name_of_suta}}">
+                                    {{-- <input type="text" name="name_of_suta" class="form-control" value="{{ $knitting_send_id->name_of_suta}}"> --}}
+                                    <select class="form-control"  name="name_of_suta">  
+                                        <option>--Select Option--</option>  
+                                        @foreach ($all_suta_name as $suta)    
+                                            <option value="{{$suta->id}}" {{ ( $suta->id == $knitting_send_id->name_of_suta) ? 'selected' : '' }}>{{$suta->suta_name}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Brand</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="brand" class="form-control"  value="{{ $knitting_send_id->brand}}">
+                                    <select class="form-control"  name="brand">  
+                                        <option>--Select Option--</option>  
+                                        @foreach ($all_brand_name as $brand)    
+                                            <option value="{{$brand->id}}" {{ ( $brand->id == $knitting_send_id->brand) ? 'selected' : '' }}>{{$brand->brand_name}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Kapor</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="kapor" class="form-control"  value="{{ $knitting_send_id->kapor}}">
+                                    <select class="form-control"  name="kapor">  
+                                        <option>--Select Option--</option>  
+                                        @foreach ($all_kapor_name as $kapor)    
+                                            <option value="{{$kapor->id}}" {{ ( $kapor->id == $knitting_send_id->kapor) ? 'selected' : '' }}>{{$kapor->kapor_name}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -77,8 +93,14 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Lekra Brand</label>
+                               
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="lekra_brand" value="{{ $knitting_send_id->lekra_brand}}" >
+                                    <select class="form-control"  name="lekra_brand">  
+                                        <option>--Select Option--</option>  
+                                        @foreach ($all_lekra_brand_name as $lekra_brand)
+                                            <option value="{{$lekra_brand->id}}" {{ ( $lekra_brand->id == $knitting_send_id->lekra_brand) ? 'selected' : '' }}>{{$lekra_brand->lekra_brand_name}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -96,7 +118,12 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Send Company Name</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="send_company_name" value="{{ $knitting_send_id->send_company_name}}" >
+                                    <select class="form-control"  name="send_company_name">  
+                                        <option>--Select Option--</option>  
+                                    @foreach ($all_company_name as $company)    
+                                        <option value="{{$company->id}}" {{ ( $company->id == $knitting_send_id->send_company_name) ? 'selected' : '' }}>{{$company->company_name}}</option>  
+                                    @endforeach
+                                </select>
                                 </div>
                             </div>
                             <div class="text-right">

@@ -25,7 +25,7 @@ class CreateMakingKnittingSendsTable extends Migration
             $table->integer('rate');
             $table->string('lekra_brand');
             $table->string('lekra_cartoon');
-            $table->integer('lekra_rate');
+            $table->float('lekra_rate');
             $table->string('send_company_name');
             // $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();

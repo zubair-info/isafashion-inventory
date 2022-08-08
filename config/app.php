@@ -168,6 +168,8 @@ return [
 
         //  image  Intervention
         Intervention\Image\ImageServiceProvider::class,
+        // domPDF
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -234,6 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // image
         'Image' => Intervention\Image\Facades\Image::class,
+        // domPDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

@@ -95,7 +95,12 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Lekra Brand</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="lekra_brand" placeholder="Enter Lekra Brand Name : Kerela"  >
+                                    <select class="form-control"  name="lekra_brand">  
+                                        <option>--Select Option--</option>  
+                                        @foreach ($all_lekra_brand_name as $lekra_brand)
+                                            <option value="{{$lekra_brand->id}}">{{$lekra_brand->lekra_brand_name}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -106,21 +111,21 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Lekra Rate</label>
+                               
                                 <div class="col-lg-9">
                                     <input type="text" class="form-control" name="lekra_rate" name="lekra_cartoon"  placeholder="Enter Lekra Rate : 27.36">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Company Name</label>
-                                <div class="col-lg-9">
-                                   
+                                <div class="col-lg-9">                                  
                                     <select class="form-control"  name="send_company_name">  
-                                        <option>--Select Option--</option>  
-                                    @foreach ($all_company_name as $company)    
-                                        <option value="{{$company->id}}">{{$company->company_name}}</option>  
-                                    @endforeach
-                                </select>
-                                    {{-- <input type="text" class="form-control" name="send_company_name"> --}}
+                                            <option>--Select Option--</option>  
+                                        @foreach ($all_company_name as $company)    
+                                            <option value="{{$company->id}}">{{$company->company_name}}</option>  
+                                        @endforeach
+                                    </select>
+                                
                                 </div>
                             </div>
                                

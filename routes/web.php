@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyNameController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
+use App\Http\Controllers\LekraBrandController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
 use App\Http\Controllers\SutaController;
@@ -46,24 +47,30 @@ Route::get('making-knitting-send-show', [MakingKnittingSendController::class, 's
 Route::get('making-knitting-send-edit/{knitting_send_id}', [MakingKnittingSendController::class, 'edit'])->name('KnittingSendEdit');
 Route::post('making-knitting-send-update', [MakingKnittingSendController::class, 'update'])->name('KnittingSendUpdate');
 Route::get('/knittingSendDelete/{id}', [MakingKnittingSendController::class, 'destroy'])->name('knittingSendDelete');
+// Route::get('making-knitting-send-view/{knitting_send_id}', [MakingKnittingSendController::class, 'view'])->name('KnittingSendView');
+Route::get('making-knitting-send-generate-pdf/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendgeneratePDF'])->name('KnittingSendPDFDownload');
+Route::get('making-knitting-send-generate-pdf-view/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendgeneratePDFview'])->name('KnittingSendView');
 
 
 // MakingKnittingReceived
 Route::get('making-knitting-recived', [MakingKnittingReceivedController::class, 'index'])->name('making_knitting_recived');
 Route::post('making-knitting-recived-store', [MakingKnittingReceivedController::class, 'store'])->name('KnittingRecivedStore');
-// Route::get('making-knitting-send-show', [MakingKnittingSendController::class, 'show'])->name('KnittingSendShow');
-// Route::get('making-knitting-send-edit/{knitting_send_id}', [MakingKnittingSendController::class, 'edit'])->name('KnittingSendEdit');
-// Route::post('making-knitting-send-update', [MakingKnittingSendController::class, 'update'])->name('KnittingSendUpdate');
-// Route::get('/knittingSendDelete/{id}', [MakingKnittingSendController::class, 'destroy'])->name('knittingSendDelete');
+Route::get('making-knitting-recived-show', [MakingKnittingReceivedController::class, 'show'])->name('KnittingReceivedShow');
+Route::get('making-knitting-recived-edit/{knitting_received_id}', [MakingKnittingReceivedController::class, 'edit'])->name('KnittingReceivedEdit');
+Route::post('making-knitting-recived-update', [MakingKnittingReceivedController::class, 'update'])->name('KnittingRecivedUpdate');
+Route::get('/knittingreceivedDelete/{id}', [MakingKnittingReceivedController::class, 'destroy'])->name('knittingSendDelete');
+Route::get('making-knitting-recived-generate-pdf/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingSendgeneratePDFDown'])->name('KnittingRecivedPDFDownload');
+Route::get('making-knitting-recived-generate-pdf-view/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingRecivedgeneratePDFview'])->name('KnittingRecivedView');
 
 
 
 // copmany name
 Route::get('company-name', [CompanyNameController::class, 'index'])->name('companyName');
 Route::post('company-name-store', [CompanyNameController::class, 'store'])->name('CompanyNameStore');
-// Route::get('company-name-edit/{id}', [CompanyNameController::class, 'edit'])->name('CompanyNameEdit');
+Route::get('company-name-edit/{id}', [CompanyNameController::class, 'edit'])->name('CompanyNameEdit');
 Route::post('company-name-update', [CompanyNameController::class, 'update'])->name('companyUpdate');
 Route::get('/companyDelete/{id}', [CompanyNameController::class, 'destroy'])->name('companyDelete');
+
 
 
 //brand
@@ -84,3 +91,9 @@ Route::get('kapor-name', [KaporController::class, 'index'])->name('kaporName');
 Route::post('kapor-name-store', [KaporController::class, 'store'])->name('kaporNameStore');
 Route::post('kapor-name-update', [KaporController::class, 'update'])->name('kaporUpdate');
 Route::get('/kaporDelete/{id}', [KaporController::class, 'destroy'])->name('kaporDelete');
+
+//lekra Brand Name
+Route::get('lekra-brand-name', [LekraBrandController::class, 'index'])->name('lekraBrandName');
+Route::post('lekra-brand-name-store', [LekraBrandController::class, 'store'])->name('lekraBrandNameStore');
+Route::post('lekra-brand-name-update', [LekraBrandController::class, 'update'])->name('lekraBrandUpdate');
+Route::get('/lekraBrandDelete/{id}', [LekraBrandController::class, 'destroy'])->name('lekraBrandDelete');

@@ -177,6 +177,9 @@
 							<li class=""> 
 								<a href="{{route('kaporName')}}"><i class="fe fe-home"></i> <span>Kapor Name</span></a>
 							</li>
+							<li class=""> 
+								<a href="{{route('lekraBrandName')}}"><i class="fe fe-home"></i> <span>Lekra Brand </span></a>
+							</li>
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span>Knitting Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
@@ -188,7 +191,7 @@
 								<a href="#"><i class="fe fe-document"></i> <span>Knitting Recived</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_recived')}}">Knitting Recived</a></li>
-									{{-- <li><a href="{{route('KnittingSendShow')}}">Knitting Show</a></li> --}}
+									<li><a href="{{route('KnittingReceivedShow')}}">Knitting Show</a></li>
 								</ul>
 							</li>
 							<li class="submenu">

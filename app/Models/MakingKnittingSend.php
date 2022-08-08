@@ -26,4 +26,8 @@ class MakingKnittingSend extends Model
     {
         return $this->belongsTo(Kapor::class, 'kapor');
     }
+    function rel_to_lekra_brand()
+    {
+        return $this->belongsTo(LekraBrand::class, 'lekra_brand');
+    }
 }

@@ -34,7 +34,8 @@
                                         <th>Id</th>
                                         <th>Chalan Id</th>
                                         <th>Date</th>
-                                        <th>Name of Suta</th>
+                                        <th>Company Name</th>
+                                        {{-- <th>Name of Suta</th>
                                         <th>Brand</th>
                                         <th>Kapor</th>
                                         <th>Weight</th>
@@ -42,33 +43,47 @@
                                         <th>Rate</th>
                                         <th>Lekra Brand</th>
                                         <th>Lekra Cartoon</th>
-                                        <th>Lekra Rate</th>
-                                        <th>Company Name</th>
-                                        <th class="text-center">Action</th>
+                                        <th>Lekra Rate</th> --}}
+                                        <th >Action</th>
                                     </tr>
                                 </thead>
+                                  
+                                {{-- {{dd($all_knitting_send[1]->rel_to_kintting_send_suta_brand_id->rel_to_suta)}} --}}
 
-                                @foreach ($all_knitting_send as $key=>$knitting_send)                                 
-                            
+                                @foreach ($all_knitting_send as $key=>$knitting_send)   
                                     <tbody>
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$knitting_send->send_chalan_id}}</td>
                                             <td>{{$knitting_send->date}}</td>
-                                            <td>{{$knitting_send->rel_to_suta->suta_name}}</td>
-                                            <td>
-                                                {{$knitting_send->rel_to_brand->brand_name}}
+                                             <td>                                                
+                                                 {{$knitting_send->rel_to_company->company_name}} 
+                                             </td>
+                                            {{-- </td>
+                                                @foreach ($knitting_send->rel_to_kintting_send_suta_brand_id as $send_suta_brand_id)
+                                                    
+                                                <td>{{$send_suta_brand_id->rel_to_suta->suta_name}}</td>
+                                                <td>{{$send_suta_brand_id->rel_to_brand->brand_name}}</td>
+                                                @endforeach
+                                            </td> --}}
+
+                                            {{-- </td>
+                                                @foreach ($knitting_send->rel_to_kintting_send_suta_brand_id as $send_suta_brand_id)
+                                                    
+                                                <td>{{$send_suta_brand_id->rel_to_brand->brand_name}}</td>
+                                                @endforeach
+                                            </td> --}}
+                                            {{-- <td>
+                                                {{$knitting_send->rel_to_kintting_send_suta_brand_id->rel_to_brand->brand_name}}
                                             </td>
-                                            <td> {{$knitting_send->rel_to_kapor->kapor_name}}</td>
-                                            <td>{{$knitting_send->weight}}</td>
-                                            <td>{{$knitting_send->cartoon}}</td>
-                                            <td>{{$knitting_send->rate}}</td>
-                                            <td>{{$knitting_send->rel_to_lekra_brand->lekra_brand_name}}</td>
-                                            <td>{{$knitting_send->lekra_cartoon}}</td>
-                                            <td>{{$knitting_send->lekra_rate}}</td>
-                                            <td>
-                                                {{$knitting_send->rel_to_company->company_name}}
-                                            </td>
+                                            <td> {{$knitting_send->rel_to_kintting_send_suta_brand_id->rel_to_kapor->kapor_name}}</td>
+                                            <td>{{$knitting_send->rel_to_kintting_send_suta_brand_id->weight}}</td>
+                                            <td>{{$knitting_send->rel_to_kintting_send_suta_brand_id->cartoon}}</td>
+                                            <td>{{$knitting_send->rel_to_kintting_send_suta_brand_id->rate}}</td>
+                                            <td>{{$knitting_send->rel_to_kintting_send_lekra_brand_id->rel_to_lekra_brand->lekra_brand_name}}</td>
+                                             <td>{{$knitting_send->rel_to_kintting_send_lekra_brand_id->lekra_cartoon}}</td>
+                                            <td>{{$knitting_send->rel_to_kintting_send_lekra_brand_id->lekra_cartoon}}</td>   --}}
+                                           
                                             <td class="text-left">                                              
                                                 <div class="actions">
                                                     <a  class="btn btn-sm bg-success-light" target="_blank" href="{{route('KnittingSendView',$knitting_send->id)}}">

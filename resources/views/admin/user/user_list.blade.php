@@ -34,6 +34,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Status</th>
+                                        <th>id</th>
                                         <th>Create at</th>
                                         <th>Action</th>
         
@@ -46,7 +47,7 @@
                                             {{-- <td>{{ $all_users->firstitem() + $key }}</td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            {{-- <td>{{ $user->id }}</td> --}}
+                                            <td>{{ $user->status }}</td>
                                             <td>
                                                 <div class="status-toggle">
                                                     

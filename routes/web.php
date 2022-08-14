@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
 use App\Http\Controllers\LekraBrandController;
+use App\Http\Controllers\MakingDyeingSendController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
 use App\Http\Controllers\SutaController;
@@ -61,6 +62,12 @@ Route::post('making-knitting-recived-update', [MakingKnittingReceivedController:
 Route::get('/knittingreceivedDelete/{id}', [MakingKnittingReceivedController::class, 'destroy'])->name('knittingSendDelete');
 Route::get('making-knitting-recived-generate-pdf/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingSendgeneratePDFDown'])->name('KnittingRecivedPDFDownload');
 Route::get('making-knitting-recived-generate-pdf-view/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingRecivedgeneratePDFview'])->name('KnittingRecivedView');
+
+
+// deying
+Route::get('dyeing-knitting-send', [MakingDyeingSendController::class, 'index'])->name('dyeingSend');
+
+
 
 
 

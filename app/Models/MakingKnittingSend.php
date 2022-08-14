@@ -10,24 +10,17 @@ class MakingKnittingSend extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    function rel_to_kintting_send_suta_brand_id()
+    {
+        return $this->hasMany(KnittingSendSutaBrand::class, 'knitting_send_id');
+    }
+
+    function rel_to_kintting_send_lekra_brand_id()
+    {
+        return $this->hasMany(KnittingSendLekraBrand::class, 'knitting_send_id');
+    }
     function rel_to_company()
     {
-        return $this->belongsTo(CompanyName::class, 'send_company_name');
-    }
-    function rel_to_brand()
-    {
-        return $this->belongsTo(Brand::class, 'brand');
-    }
-    function rel_to_suta()
-    {
-        return $this->belongsTo(Suta::class, 'name_of_suta');
-    }
-    function rel_to_kapor()
-    {
-        return $this->belongsTo(Kapor::class, 'kapor');
-    }
-    function rel_to_lekra_brand()
-    {
-        return $this->belongsTo(LekraBrand::class, 'lekra_brand');
+        return $this->belongsTo(CompanyName::class, 'company_id');
     }
 }

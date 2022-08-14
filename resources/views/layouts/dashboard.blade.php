@@ -1,12 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Doccure - Dashboard</title>
+        <title>bitBirds - Dashboard</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		<!-- Favicon -->
@@ -47,11 +45,13 @@
 			
 				<!-- Logo -->
                 <div class="header-left">
-                    <a href="index.html" class="logo">
-						<img src="{{ asset('backend/assets/img/logo.png')}}" alt="Logo">
+                    <a href="index.html" class="logo"  style="margin-top:10px;">
+						{{-- <img src="{{ asset('backend/assets/img/bitBirdslogo.png')}}" alt="Logo"> --}}
+						<h2>bitBirds</h2>
 					</a>
-					<a href="index.html" class="logo logo-small">
-						<img src="{{ asset('backend/assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
+					<a href="index.html" class="logo logo-small" style="margin-top:10px;">
+						<h2>bitBirds</h2>
+						{{-- <img src="{{ asset('backend/assets/img/bitBirdslogo.png')}}" alt="Logo" width="30" height="30"> --}}
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -194,6 +194,15 @@
 									<li><a href="{{route('KnittingReceivedShow')}}">Knitting Show</a></li>
 								</ul>
 							</li>
+
+							<li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('dyeingSend')}}">Dyeing Send</a></li>
+									<li><a href="{{route('KnittingSendShow')}}">Dyeing Show</a></li>
+								</ul>
+							</li>
+							
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
@@ -277,6 +286,4 @@
         @yield('footer_script')
 		
     </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
 </html>

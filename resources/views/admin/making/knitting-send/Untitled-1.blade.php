@@ -30,13 +30,10 @@ body {
   height: auto;
   background: #fff;
   padding: 5vh;
-  /* padding: 30px; */
   margin-top: 5vh;
   max-width: 110vh;
   width: 100%;
   box-sizing: border-box;
-  /* border: 1px solid #eee; */
-  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
   /* border: 1px solid #dcdcdc; */
 }
 .wrapper-invoice .invoice .invoice-information {
@@ -222,13 +219,13 @@ body {
       <!-- switch mode rtl by adding class rtl on invoice class -->
       <div class="invoice">
         <div class="invoice-information">
-          {{-- <p><b>Send Chalan Id#</b> :{{ App\Models\MakingKnittingSend::find($knitting_send_id)->send_chalan_id }}</p>
-          <p><b>Date </b>: {{ App\Models\MakingKnittingSend::find($knitting_send_id)->date}}</p> --}}
+          <p><b>Send Chalan Id#</b> :{{ App\Models\MakingKnittingSend::find($knitting_send_id)->send_chalan_id }}</p>
+          <p><b>Date </b>: {{ App\Models\MakingKnittingSend::find($knitting_send_id)->date}}</p>
         </div>
         <!-- logo brand invoice -->
         <div class="invoice-logo-brand">
           <!-- <h2>Tampsh.</h2> -->
-          {{-- <img src="https://bitbirds.com/web/wp-content/uploads/2021/11/bitBirds-white-logo.png" alt="" /> --}}
+          <img src="https://bitbirds.com/web/wp-content/uploads/2021/11/bitBirds-white-logo.png" alt="" />
 		   <h2 style="color: #6c757d;; font-size: 18px;"><strong>Isa Fashion</strong></h2>
         </div>
         <!-- invoice head -->
@@ -253,53 +250,35 @@ body {
             <thead>
               <tr>
                 <th>id</th>
-                <th>Suta Name</th>
-                <th>Brand</th>
-                <th>Kapor</th>
-                <th>Weight</th>
-                <th>Carton </th>
+				<th>name</th>
+				<th>Weight </th>
+				<th>Carton </th>
                 <th>Rate </th>
+                <th>L.Brand </th>
+                <th>L.Cartoon </th>
+                <th>L.Rate </th>
+                <th>Company </th>
+
               </tr>
             </thead>
-            {{-- {{dd($all_suta_brand)}} --}}
+            <tbody>
 
-            @foreach ($all_suta_brand as $key=>$suta_brand)   
-                <tbody>
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$suta_brand->rel_to_suta->suta_name}}</td>
-                        <td>{{$suta_brand->rel_to_brand->brand_name}}</td>
-                        <td>{{$suta_brand->rel_to_kapor->kapor_name}}</td>
-                        <td>{{$suta_brand->weight}}</td>
-                        <td>{{$suta_brand->cartoon}}</td>
-                        <td>{{$suta_brand->rate}}</td>
-                    </tr>                                   
-                </tbody>
-             @endforeach
-
-          </table>
-          <table class="table" style="width:100%;margin-top:20px;">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Lekra Name</th>
-                <th>Lekra Cartoon</th>
-                <th>Lekra Rate</th>
-              </tr>
-            </thead>
-            {{-- {{dd($all_suta_brand)}} --}}
-
-              @foreach ($all_lekra_brand as $key=>$lekra_brand)   
-                <tbody>
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$lekra_brand->rel_to_lekra_brand->lekra_brand_name}}</td>
-                        <td>{{$lekra_brand->lekra_cartoon}}</td>
-                        <td>{{$lekra_brand->lekra_rate}}</td>
-                    </tr>                                   
-                </tbody>
-             @endforeach
-
+                @foreach (App\Models\MakingKnittingSend::where('id', $knitting_send_id)->get() as $key => $knitting_send_id)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{$knitting_send_id->rel_to_suta->suta_name.' , '. $knitting_send_id->rel_to_brand->brand_name.' , '.    $knitting_send_id->rel_to_kapor->kapor_name}}</td>
+                    <td>{{$knitting_send_id->weight}}</td>
+                    <td>{{$knitting_send_id->cartoon}}</td>
+                    <td>{{$knitting_send_id->rate}}</td>
+                    <td>{{$knitting_send_id->rel_to_lekra_brand->lekra_brand_name}}</td>
+                    <td>{{$knitting_send_id->lekra_cartoon}}</td>
+                    <td>{{$knitting_send_id->lekra_rate}}</td>
+                    <td>{{$knitting_send_id->rel_to_company->company_name}}</td>
+                   
+                </tr>
+            @endforeach
+    
+            </tbody>
           </table>
           {{-- <div class="flex-table">
             <div class="flex-column"></div>

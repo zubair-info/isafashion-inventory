@@ -50,8 +50,8 @@ class MakingKnittingSendController extends Controller
 
         $form_count = $request->form_count;
         $suta_id = $request->suta_id;
-        $brand_id = $request->brand;
-        $kapor_id = $request->kapor;
+        $brand_id = $request->brand_id;
+        $kapor_id = $request->kapor_id;
         $weight = $request->weight;
         $cartoon = $request->cartoon;
         $rate = $request->rate;
@@ -89,27 +89,6 @@ class MakingKnittingSendController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('KnittingSendShow')->with($notification);
-
-        // MakingKnittingSend::insert([
-        // 'send_chalan_id' => $request->send_chalan_id,
-        // 'date' =>  $request->date,
-        //     'name_of_suta' => $request->suta_id,
-        //     'brand' => $request->brand,
-        //     'kapor' => $request->kapor,
-        //     'weight' => $request->weight,
-        //     'cartoon' => $request->cartoon,
-        //     'rate' => $request->rate,
-        //     'lekra_brand' => $request->lekra_brand,
-        //     'lekra_cartoon' => $request->lekra_cartoon,
-        //     'lekra_rate' => $request->lekra_rate,
-        //     'send_company_name' => $request->send_company_name,
-        //     'created_at' => Carbon::now(),
-        // ]);
-        // $notification = array(
-        //     'message' => 'Making Knitting Send Sucessfully!',
-        //     'alert-type' => 'success'
-        // );
-        // return redirect()->route('KnittingSendShow')->with($notification);
     }
 
     function show()
@@ -166,6 +145,8 @@ class MakingKnittingSendController extends Controller
     function destroy($id)
     {
         MakingKnittingSend::find($id)->delete();
+        KnittingSendSutaBrand::where('knitting_send_id', $id)->delete();
+        KnittingSendLekraBrand::where('knitting_send_id', $id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
     }
 
@@ -184,6 +165,7 @@ class MakingKnittingSendController extends Controller
     function knittingSendgeneratePDFview($knitting_send_id)
     {
         // echo $knitting_send_id;
+        $all_knitting_send = MakingKnittingSend::get();
         $all_suta_brand = KnittingSendSutaBrand::where('knitting_send_id', $knitting_send_id)->get();
         $all_lekra_brand = KnittingSendLekraBrand::where('knitting_send_id', $knitting_send_id)->get();
         // dd($all_suta_brand[0]->rel_to_suta);
@@ -193,7 +175,90 @@ class MakingKnittingSendController extends Controller
         // ]);
         return view('admin.making.knitting-send.invoice', [
             'all_suta_brand' => $all_suta_brand,
+            'all_lekra_brand' => $all_lekra_brand,
+            'all_knitting_send' => $all_knitting_send,
+            'knitting_send_id' => $knitting_send_id
+        ]);
+    }
+
+    function knittingSendView($knitting_send_id)
+    {
+        $all_suta_brand = KnittingSendSutaBrand::get();
+        $all_lekra_brand = KnittingSendLekraBrand::where('knitting_send_id', $knitting_send_id)->get();
+        return view('admin.making.knitting-send.view', [
+            'all_suta_brand' => $all_suta_brand,
             'all_lekra_brand' => $all_lekra_brand
         ]);
+    }
+
+    function sutaBrandEdit($suta_brand_id)
+    {
+        $all_suta_brand_id = KnittingSendSutaBrand::find($suta_brand_id);
+        $all_brand_name = Brand::get();
+        $all_suta_name = Suta::get();
+        $all_kapor_name = Kapor::get();
+        return view('admin.making.knitting-send.sutaBrandEdit', [
+            'all_suta_brand_id' => $all_suta_brand_id,
+            'all_brand_name' => $all_brand_name,
+            'all_suta_name' => $all_suta_name,
+            'all_kapor_name' => $all_kapor_name
+        ]);
+    }
+
+    function sutaBrandUpdate(Request $request)
+    {
+        // echo $request->suta_brand_id;
+        // dd($request);
+        KnittingSendSutaBrand::find($request->suta_brand_id)->update([
+            'suta_id' => $request->suta_id,
+            'brand_id' => $request->brand_id,
+            'kapor_id' => $request->kapor_id,
+            'weight' => $request->weight,
+            'cartoon' => $request->cartoon,
+            'rate' => $request->rate,
+            'updated_at' => Carbon::now(),
+        ]);
+        $notification = array(
+            'message' => 'Making Knitting Suta Brand Update Sucessfully!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('KnittingSendShow')->with($notification);
+    }
+
+    function sutaBrandDelete($id)
+    {
+        KnittingSendSutaBrand::find($id)->delete();
+        return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function lekraBrandEdit($knitting_received_multiple_id)
+    {
+        $all_knitting_received_multiple = KnittingSendLekraBrand::find($knitting_received_multiple_id);
+        return view('admin.making.knitting-send.lekraBrandEdit', [
+            'all_knitting_received_multiple' => $all_knitting_received_multiple,
+
+        ]);
+    }
+
+    function sendLekraBrandUpdate(Request $request)
+    {
+        // dd($request);
+        KnittingSendLekraBrand::find($request->all_lekra_brand_id)->update([
+            'lekra_brand' => $request->lekra_brand,
+            'lekra_cartoon' => $request->lekra_cartoon,
+            'lekra_rate' => $request->lekra_rate,
+        ]);
+        $notification = array(
+            'message' => 'Making Knitting Lekra Brand Update Sucessfully!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('KnittingSendShow')->with($notification);
+    }
+
+    function lekraBrandDelete($id)
+    {
+        // echo $id;
+        KnittingSendLekraBrand::find($id)->delete();
+        return response()->json(['success' => 'Delete sucessfull']);
     }
 }

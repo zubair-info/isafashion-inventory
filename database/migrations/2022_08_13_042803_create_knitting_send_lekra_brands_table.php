@@ -16,7 +16,7 @@ class CreateKnittingSendLekraBrandsTable extends Migration
         Schema::create('knitting_send_lekra_brands', function (Blueprint $table) {
             $table->id();
             $table->integer('knitting_send_id');
-            $table->string('lekra_brand');
+            $table->integer('lekra_brand_id');
             $table->string('lekra_cartoon');
             $table->string('lekra_rate');
             $table->timestamps();

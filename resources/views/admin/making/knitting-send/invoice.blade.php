@@ -222,8 +222,9 @@ body {
       <!-- switch mode rtl by adding class rtl on invoice class -->
       <div class="invoice">
         <div class="invoice-information">
-          {{-- <p><b>Send Chalan Id#</b> :{{ App\Models\MakingKnittingSend::find($knitting_send_id)->send_chalan_id }}</p>
-          <p><b>Date </b>: {{ App\Models\MakingKnittingSend::find($knitting_send_id)->date}}</p> --}}
+          <p class="text-uppercase" style="font-size: 22px;"> <b >Chalan Id</b> : #{{ App\Models\MakingKnittingSend::find($knitting_send_id)->send_chalan_id }}</p>
+          {{-- <p>Chalan Id: #{{$all_knitting_send->send_chalan_id}}</p> --}}
+          {{-- <p>Created Date: {{$all_knitting_send->date}}</p> --}}
         </div>
         <!-- logo brand invoice -->
         <div class="invoice-logo-brand">
@@ -241,6 +242,7 @@ body {
           </div>
 
           <div class="head client-data">
+
             <p>Mohammad Sahrullah</p>
             <p>Email: demo@gmail.com</p>
             <p>Phone: 01921797982</p>

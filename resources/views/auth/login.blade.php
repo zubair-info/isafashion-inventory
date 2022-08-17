@@ -32,7 +32,8 @@
             	<div class="container">
                 	<div class="loginbox">
                     	<div class="login-left">
-							<img class="img-fluid" src="{{ asset('backend/assets/img/logo-white.png') }}" alt="Logo">
+							{{-- <img class="img-fluid" src="{{ asset('backend/assets/img/logo-white.png') }}" alt="Logo"> --}}
+							<h1 class="text-white " style="font-size: 50px">bitBirds</h1>
                         </div>
                         <div class="login-right">
 							<div class="login-right-wrap">
@@ -80,8 +81,8 @@
 								  
 								<!-- Social Login -->
 								<div class="social-login">
-									<span>Login with</span>
-									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i class="fa fa-google"></i></a>
+									{{-- <span>Login with</span>
+									<a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i class="fa fa-google"></i></a> --}}
 								</div>
 								<!-- /Social Login -->
 								

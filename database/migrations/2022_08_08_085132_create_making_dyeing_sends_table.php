@@ -16,12 +16,8 @@ class CreateMakingDyeingSendsTable extends Migration
         Schema::create('making_dyeing_sends', function (Blueprint $table) {
             $table->id();
             $table->integer('send_chalan_id');
-            $table->string('company_name');
+            $table->string('company_id');
             $table->date('date');
-            $table->string('color');
-            $table->float('body');
-            $table->float('rib');
-            $table->float('total');
             $table->timestamps();
         });
     }

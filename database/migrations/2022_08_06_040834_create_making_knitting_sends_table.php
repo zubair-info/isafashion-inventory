@@ -17,17 +17,7 @@ class CreateMakingKnittingSendsTable extends Migration
             $table->id();
             $table->integer('send_chalan_id');
             $table->date('date');
-            $table->integer('name_of_suta');
-            $table->integer('brand');
-            $table->integer('kapor');
-            $table->integer('weight');
-            $table->integer('cartoon');
-            $table->integer('rate');
-            $table->string('lekra_brand');
-            $table->string('lekra_cartoon');
-            $table->float('lekra_rate');
-            $table->string('send_company_name');
-            // $table->timestamp('email_verified_at')->nullable();
+            $table->integer('company_id');
             $table->timestamps();
         });
     }

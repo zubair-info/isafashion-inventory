@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="page-title">Knitting Send Show!</h3>
-                <ul class="breadcrumb">
+                {{-- <ul class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>
@@ -19,14 +19,7 @@
         <div class="col-xl-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-header">
-                        <h4 class="card-title">Making Knitting Send List</h4>
-                        {{-- <p class="card-text">
-                            This is the most basic example of the datatables with zero configuration. Use the <code>.datatable</code> class to initialize datatables.
-                        </p> --}}
-                    </div>
                     <div class="card-body">
-
                         <div class="table-responsive">
                             <table class="datatable table table-stripped">
                                 <thead>
@@ -35,22 +28,11 @@
                                         <th>Chalan Id</th>
                                         <th>Date</th>
                                         <th>Company Name</th>
-                                        {{-- <th>Name of Suta</th>
-                                        <th>Brand</th>
-                                        <th>Kapor</th>
-                                        <th>Weight</th>
-                                        <th>Cartoon</th>
-                                        <th>Rate</th>
-                                        <th>Lekra Brand</th>
-                                        <th>Lekra Cartoon</th>
-                                        <th>Lekra Rate</th> --}}
                                         <th >Action</th>
                                     </tr>
                                 </thead>
                                   
-                                {{-- {{dd($all_knitting_send[1]->rel_to_kintting_send_suta_brand_id->rel_to_suta)}} --}}
-
-                                @foreach ($all_knitting_send as $key=>$knitting_send)   
+                               @foreach ($all_knitting_send as $key=>$knitting_send)   
                                     <tbody>
                                         <tr>
                                             <td>{{$key+1}}</td>
@@ -86,13 +68,16 @@
                                            
                                             <td class="text-left">                                              
                                                 <div class="actions">
-                                                    <a  class="btn btn-sm bg-success-light" target="_blank" href="{{route('KnittingSendView',$knitting_send->id)}}">
+                                                    <a  class="btn btn-sm bg-success-light"  href="{{route('KnittingSendView',$knitting_send->id)}}">
                                                         <i class="fe fe-eye"></i> View
+                                                    </a>
+                                                    <a  class="btn btn-sm bg-info-light" target="_blank" href="{{route('KnittingSendInvoiceView',$knitting_send->id)}}">
+                                                        <i class="fe fe-eye"></i> Invoice View
                                                     </a>
                                                     <a  class="btn btn-sm bg-success-light"href="{{route('KnittingSendPDFDownload',$knitting_send->id)}}">
                                                         <i class="fa fa-download" aria-hidden="true"></i></i> Download
                                                     </a>
-                                                    <a  class="btn btn-sm bg-info-light"href="{{route('KnittingSendEdit',$knitting_send->id)}}">
+                                                    <a  class="btn btn-sm bg-warning-light"href="{{route('KnittingSendEdit',$knitting_send->id)}}">
                                                         <i class="fe fe-pencil"></i> Edit
                                                     </a>
                                                     <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$knitting_send->id}}">

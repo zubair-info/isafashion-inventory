@@ -16,12 +16,12 @@ class CreateKnittingSendSutaBrandsTable extends Migration
         Schema::create('knitting_send_suta_brands', function (Blueprint $table) {
             $table->id();
             $table->integer('knitting_send_id');
-            $table->integer('name_of_suta');
-            $table->integer('brand');
-            $table->integer('kapor');
-            $table->integer('weight');
-            $table->integer('cartoon');
-            $table->integer('rate');
+            $table->integer('suta_id');
+            $table->integer('brand_id');
+            $table->integer('kapor_id');
+            $table->string('weight');
+            $table->string('cartoon');
+            $table->string('rate');
             $table->timestamps();
         });
     }

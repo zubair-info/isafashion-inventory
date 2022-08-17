@@ -16,7 +16,7 @@
     <!-- /Page Header -->
 
    <div class="row">
-        <div class="col-xl-10 col-sm-12 col-12">
+        <div class="col-xl-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,45 +26,53 @@
                         <thead>
                           <tr>
                             <th>id</th>
+                            <th>Received Chalan Id</th>
                             <th>Suta Name</th>
                             <th>Brand</th>
                             <th>Kapor</th>
-                            <th>Weight</th>
-                            <th>Carton</th>
-                            <th>Rate</th>
+                            <th>Body</th>
+                            <th>Rib</th>
+                            <th>Color</th>
+                            <th>Roll</th>
+                            <th>Total</th>
+                            <th>Used Lekra</th>
                             <th>Action</th>
                           </tr>
                         </thead>
-                        {{-- {{dd($all_suta_brand)}} --}}
+                        {{-- {{dd($all_knitting_received_multiple)}} --}}
             
-                        @foreach ($all_suta_brand as $key=>$suta_brand)   
+                        @foreach ($all_knitting_received_multiple as $key=>$knitting_received_multiple)   
                             <tbody>
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$suta_brand->rel_to_suta->suta_name}}</td>
-                                    <td>{{$suta_brand->rel_to_brand->brand_name}}</td>
-                                    <td>{{$suta_brand->rel_to_kapor->kapor_name}}</td>
-                                    <td>{{$suta_brand->weight}}</td>
-                                    <td>{{$suta_brand->cartoon}}</td>
-                                    <td>{{$suta_brand->rate}}</td>
+                                    <td>{{$knitting_received_multiple->received_chalan_id}}</td>
+                                    <td>{{$knitting_received_multiple->rel_to_suta->suta_name}}</td>
+                                    <td>{{$knitting_received_multiple->rel_to_brand->brand_name}}</td>
+                                    <td>{{$knitting_received_multiple->rel_to_kapor->kapor_name}}</td>
+                                    <td>{{$knitting_received_multiple->body}}</td>
+                                    <td>{{$knitting_received_multiple->rib}}</td>
+                                    <td>{{$knitting_received_multiple->color}}</td>
+                                    <td>{{$knitting_received_multiple->roll}}</td>
+                                    <td>{{$knitting_received_multiple->total}}</td>
+                                    <td>{{$knitting_received_multiple->total_used_lekra}}</td>
                                     <td>
-                                        <a  class="btn btn-sm bg-warning-light"href="{{route('SutaBrandEdit',$suta_brand->id)}}">
+                                        <a  class="btn btn-sm bg-warning-light"href="{{route('knittingReceivedMultipleEdit',$knitting_received_multiple->id)}}">
                                         <i class="fe fe-pencil"></i> Edit
                                          </a>
-                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$suta_brand->id}}">
+                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$knitting_received_multiple->id}}">
                                             <i class="fe fe-trash"></i> Delete
                                     </td>
                                 </tr>
 
                                 <!-- Delete Modal -->
-                                <div class="modal fade delete_modal" id="delete_modal_{{$suta_brand->id}}" aria-hidden="true" role="dialog">
+                                <div class="modal fade delete_modal" id="delete_modal_{{$knitting_received_multiple->id}}" aria-hidden="true" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered" role="document" >
                                         <div class="modal-content">
                                             <div class="modal-body">
                                                 <div class="form-content p-2">
                                                     <h4 class="modal-title">Delete</h4>
                                                     <p class="mb-4">Are you sure want to delete?</p>
-                                                    <button  name="{{$suta_brand->id }}" type="button" class="btn btn-primary btn_delete">Delete </button>
+                                                    <button  name="{{$knitting_received_multiple->id }}" type="button" class="btn btn-primary btn_delete">Delete </button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
@@ -77,52 +85,7 @@
                          @endforeach
             
                     </table>
-                    <table class="table" style="width:100%;margin-top:20px;">
-                        <thead>
-                          <tr>
-                            <th>id</th>
-                            <th>Lekra Name</th>
-                            <th>Lekra Cartoon</th>
-                            <th>Lekra Rate</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        {{-- {{dd($all_suta_brand)}} --}}
-            
-                          @foreach ($all_lekra_brand as $key=>$lekra_brand)   
-                            <tbody>
-                                <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>{{$lekra_brand->rel_to_lekra_brand->lekra_brand_name}}</td>
-                                    <td>{{$lekra_brand->lekra_cartoon}}</td>
-                                    <td>{{$lekra_brand->lekra_rate}}</td>
-                                    <td>
-                                        <a  class="btn btn-sm bg-warning-light"href="{{route('lekraBrandEdit',$lekra_brand->id)}}">
-                                        <i class="fe fe-pencil"></i> Edit
-                                         </a>
-                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$lekra_brand->id}}">
-                                            <i class="fe fe-trash"></i> Delete
-                                    </td>
-                                </tr>  
-                                  <!-- Delete Modal -->
-                                <div class="modal fade delete_modal" id="delete_modal_{{$lekra_brand->id}}" aria-hidden="true" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document" >
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <div class="form-content p-2">
-                                                    <h4 class="modal-title">Delete</h4>
-                                                    <p class="mb-4">Are you sure want to delete?</p>
-                                                    <button  name="{{$lekra_brand->id }}" type="button" class="btn btn-primary btn_delete">Delete </button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!-- /Delete Modal -->                                 
-                            </tbody>
-                         @endforeach
-                      </table>
+
                     </div>
                      
             
@@ -148,7 +111,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url:"/knittingSendSutaBrandDelete/"+id,
+                url:"/knittingRecivedMultipleDelete/"+id,
                 data: {
                     "id": id,
                     "_token": token,

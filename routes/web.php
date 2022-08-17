@@ -50,7 +50,14 @@ Route::post('making-knitting-send-update', [MakingKnittingSendController::class,
 Route::get('/knittingSendDelete/{id}', [MakingKnittingSendController::class, 'destroy'])->name('knittingSendDelete');
 // Route::get('making-knitting-send-view/{knitting_send_id}', [MakingKnittingSendController::class, 'view'])->name('KnittingSendView');
 Route::get('making-knitting-send-generate-pdf/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendgeneratePDF'])->name('KnittingSendPDFDownload');
-Route::get('making-knitting-send-generate-pdf-view/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendgeneratePDFview'])->name('KnittingSendView');
+Route::get('making-knitting-send-generate-pdf-view/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendgeneratePDFview'])->name('KnittingSendInvoiceView');
+Route::get('making-knitting-send-view/{knitting_send_id}', [MakingKnittingSendController::class, 'knittingSendView'])->name('KnittingSendView');
+Route::get('making-knitting-send-suta-brand-edit/{suta_brand_id}', [MakingKnittingSendController::class, 'sutaBrandEdit'])->name('SutaBrandEdit');
+Route::POST('making-knitting-send-suta-brand-update', [MakingKnittingSendController::class, 'sutaBrandUpdate'])->name('sutaBrandUpdate');
+Route::get('/knittingSendSutaBrandDelete/{id}', [MakingKnittingSendController::class, 'sutaBrandDelete'])->name('SutaBrandDelete');
+Route::get('making-knitting-send-lekra-brand-edit/{all_lekra_brand_id}', [MakingKnittingSendController::class, 'lekraBrandEdit'])->name('lekraBrandEdit');
+Route::POST('making-knitting-send-lekra-brand-update', [MakingKnittingSendController::class, 'sendLekraBrandUpdate'])->name('sendlekraBrandUpdate');
+Route::get('/knittingSendLekraBrandDelete/{id}', [MakingKnittingSendController::class, 'lekraBrandDelete'])->name('SutaBrandDelete');
 
 
 // MakingKnittingReceived
@@ -59,13 +66,19 @@ Route::post('making-knitting-recived-store', [MakingKnittingReceivedController::
 Route::get('making-knitting-recived-show', [MakingKnittingReceivedController::class, 'show'])->name('KnittingReceivedShow');
 Route::get('making-knitting-recived-edit/{knitting_received_id}', [MakingKnittingReceivedController::class, 'edit'])->name('KnittingReceivedEdit');
 Route::post('making-knitting-recived-update', [MakingKnittingReceivedController::class, 'update'])->name('KnittingRecivedUpdate');
-Route::get('/knittingreceivedDelete/{id}', [MakingKnittingReceivedController::class, 'destroy'])->name('knittingSendDelete');
+Route::get('/knittingReceivedDelete/{id}', [MakingKnittingReceivedController::class, 'destroy'])->name('knittingSendDelete');
 Route::get('making-knitting-recived-generate-pdf/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingSendgeneratePDFDown'])->name('KnittingRecivedPDFDownload');
 Route::get('making-knitting-recived-generate-pdf-view/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingRecivedgeneratePDFview'])->name('KnittingRecivedView');
+
+Route::get('making-knitting-received-view/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingReceivedView'])->name('KnittingReceivedView');
+Route::get('making-knitting-recived-multiple-edit/{knitting_received_multiple_id}', [MakingKnittingReceivedController::class, 'knittingReceivedMultipleEdit'])->name('knittingReceivedMultipleEdit');
+Route::get('/knittingRecivedMultipleDelete/{id}', [MakingKnittingReceivedController::class, 'knittingRecivedMultipleDelete'])->name('SutaBrandDelete');
+Route::POST('making-knitting-multiple-received-update', [MakingKnittingReceivedController::class, 'knittingRecivedMultipleUpdate'])->name('knittingRecivedMultipleUpdate');
 
 
 // deying
 Route::get('dyeing-knitting-send', [MakingDyeingSendController::class, 'index'])->name('dyeingSend');
+Route::post('making-knitting-daying-store', [MakingDyeingSendController::class, 'store'])->name('KnittingDayingSendStore');
 
 
 

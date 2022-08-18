@@ -267,15 +267,11 @@ body {
             </thead>
             <tbody>
 
-                @foreach (App\Models\MakingknittingMultipleReceived::where('id', $knitting_received_id)->get() as $key => $knitting_received_multiple_id)
+                @foreach (App\Models\MakingknittingMultipleReceived::where('knitting_received_id', $knitting_received_id)->get() as $key => $knitting_received_multiple_id)
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{$knitting_received_multiple_id->knitting_received_id}}</td>
                   <td>  {{$knitting_received_multiple_id->rel_to_suta->suta_name.'  '. $knitting_received_multiple_id->rel_to_brand->brand_name.'  '.    $knitting_received_multiple_id->rel_to_kapor->kapor_name}} </td>
-
-                    {{-- <td>{{$knitting_received_multiple_id->rel_to_suta->suta_name}}</td>
-                    <td>{{$knitting_received_multiple_id->rel_to_brand->brand_name}}</td>
-                    <td>{{$knitting_received_multiple_id->rel_to_kapor->kapor_name}}</td> --}}
                     <td>{{$knitting_received_multiple_id->body}}</td>
                     <td>{{$knitting_received_multiple_id->rib}}</td>
                     <td>{{$knitting_received_multiple_id->color}}</td>

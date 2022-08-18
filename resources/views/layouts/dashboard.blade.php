@@ -165,7 +165,7 @@
 								</ul>
 							</li>	
 							
-							<li class=""> 
+							<li >> 
 								<a href="{{route('companyName')}}"><i class="fe fe-home"></i> <span>Company Name</span></a>
 							</li>
 							<li class=""> 
@@ -180,7 +180,7 @@
 							<li class=""> 
 								<a href="{{route('lekraBrandName')}}"><i class="fe fe-home"></i> <span>Lekra Brand </span></a>
 							</li>
-							<li class="submenu">
+							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }}">
 								<a href="#"><i class="fe fe-document"></i> <span>Knitting Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_send')}}">Knitting Send</a></li>
@@ -199,7 +199,7 @@
 								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('dyeingSend')}}">Dyeing Send</a></li>
-									<li><a href="{{route('KnittingSendShow')}}">Dyeing Show</a></li>
+									<li><a href="{{route('dyeingSendShow')}}">Dyeing Show</a></li>
 								</ul>
 							</li>
 							

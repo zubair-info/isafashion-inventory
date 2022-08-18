@@ -30,12 +30,10 @@ body {
   height: auto;
   background: #fff;
   padding: 5vh;
-  /* padding: 30px; */
   margin-top: 5vh;
   max-width: 110vh;
   width: 100%;
   box-sizing: border-box;
-  /* border: 1px solid #eee; */
   box-shadow: 0 0 10px rgb(0 0 0 / 15%);
   /* border: 1px solid #dcdcdc; */
 }
@@ -222,15 +220,15 @@ body {
       <!-- switch mode rtl by adding class rtl on invoice class -->
       <div class="invoice">
         <div class="invoice-information">
-          <p class="text-uppercase" style="font-size: 22px;"> <b >Chalan Id</b> : #{{ App\Models\MakingKnittingSend::find($knitting_send_id)->send_chalan_id }}</p>
-          <p><b>Date </b>: {{ App\Models\MakingKnittingSend::find($knitting_send_id)->date}}</p>
 
+            <p class="text-uppercase" style="font-size: 22px;"> <b >Chalan Id</b> : #{{ App\Models\MakingDyeingSend::find($dyeing_multiple_id)->send_chalan_id	 }}</p>
+          <p><b>Date </b>: {{ App\Models\MakingDyeingSend::find($dyeing_multiple_id)->date}}</p>
         </div>
         <!-- logo brand invoice -->
         <div class="invoice-logo-brand">
           <!-- <h2>Tampsh.</h2> -->
           {{-- <img src="https://bitbirds.com/web/wp-content/uploads/2021/11/bitBirds-white-logo.png" alt="" /> --}}
-		   <h2 style="color: #6c757d;; font-size: 18px;"><strong>Isa Fashion</strong></h2>
+		   <h2 style="color: #6c757d;; font-size: 22px;"><strong>Isa Fashion</strong></h2>
         </div>
         <!-- invoice head -->
         <div class="invoice-head">
@@ -242,7 +240,7 @@ body {
           </div>
 
           <div class="head client-data">
-
+            {{-- <p>Chalan Id: #{{$all_knitting_send->}}</p> --}}
             <p>Mohammad Sahrullah</p>
             <p>Email: demo@gmail.com</p>
             <p>Phone: 01921797982</p>
@@ -255,84 +253,37 @@ body {
             <thead>
               <tr>
                 <th>id</th>
-                <th>Suta Name</th>
-                <th>Brand</th>
-                <th>Kapor</th>
-                <th>Weight</th>
-                <th>Carton </th>
-                <th>Rate </th>
+                <th>Received Chalan</th>
+                <th>Color</th>
+                <th>Roll</th>
+                <th>Rib </th>
+                <th>Body </th>        
+                <th>Total</th>
+                <th>Lost Percentage</th>
+
               </tr>
             </thead>
-            {{-- {{dd($all_suta_brand)}} --}}
+            <tbody>
 
-            @foreach ($all_suta_brand as $key=>$suta_brand)   
-                <tbody>
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$suta_brand->rel_to_suta->suta_name}}</td>
-                        <td>{{$suta_brand->rel_to_brand->brand_name}}</td>
-                        <td>{{$suta_brand->rel_to_kapor->kapor_name}}</td>
-                        <td>{{$suta_brand->weight}}</td>
-                        <td>{{$suta_brand->cartoon}}</td>
-                        <td>{{$suta_brand->rate}}</td>
-                    </tr>                                   
-                </tbody>
-             @endforeach
-
+                @foreach (App\Models\MakingDyeingMultipleSend::where('dyeing_send_id', $dyeing_multiple_id)->get() as $key => $dyeing_send_multiple_id)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{$dyeing_send_multiple_id->received_chalan_id}}</td>
+                    <td>{{$dyeing_send_multiple_id->color}}</td>
+                    <td>{{$dyeing_send_multiple_id->roll}}</td>
+                    <td>{{$dyeing_send_multiple_id->rib}}</td>
+                    <td>{{$dyeing_send_multiple_id->body}}</td>      
+                    <td>{{$dyeing_send_multiple_id->total}}</td>
+                    <td>{{$dyeing_send_multiple_id->lost_percentage}}</td>
+                    {{-- <td>{{$dyeing_send_multiple_id->total_used_lekra}}</td> --}}
+                   
+                </tr>
+            @endforeach
+    
+            </tbody>
           </table>
-          <table class="table" style="width:100%;margin-top:20px;">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Lekra Name</th>
-                <th>Lekra Cartoon</th>
-                <th>Lekra Rate</th>
-              </tr>
-            </thead>
-            {{-- {{dd($all_suta_brand)}} --}}
 
-              @foreach ($all_lekra_brand as $key=>$lekra_brand)   
-                <tbody>
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$lekra_brand->rel_to_lekra_brand->lekra_brand_name}}</td>
-                        <td>{{$lekra_brand->lekra_cartoon}}</td>
-                        <td>{{$lekra_brand->lekra_rate}}</td>
-                    </tr>                                   
-                </tbody>
-             @endforeach
-
-          </table>
-          {{-- <div class="flex-table">
-            <div class="flex-column"></div>
-            <div class="flex-column">
-              <table class="table-subtotal">
-                <tbody>
-                  <tr>
-                    <td>Subtotal</td>
-                    <td>Rp.80.000</td>
-                  </tr>
-                  <tr>
-                    <td>PPN 10%</td>
-                    <td>Rp.5.000</td>
-                  </tr>
-                  <tr>
-                    <td>Credit</td>
-                    <td>Rp.0</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- invoice total  -->
-          <div class="invoice-total-amount">
-            <p>Total : Rp.80.000</p>
-          </div> --}}
         </div>
-        <!-- invoice footer -->
-        {{-- <div class="invoice-footer">
-          <p>Thankyou, happy shopping again</p>
-        </div> --}}
       </div>
     </section>
     <div class="copyright">

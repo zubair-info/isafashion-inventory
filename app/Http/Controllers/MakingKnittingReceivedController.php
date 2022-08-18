@@ -204,10 +204,4 @@ class MakingKnittingReceivedController extends Controller
         );
         return redirect()->route('KnittingReceivedShow')->with($notification);
     }
-
-    function knittingRecivedMultipleDelete($id)
-    {
-        MakingknittingMultipleReceived::find($id)->delete();
-        return response()->json(['success' => 'Delete sucessfull']);
-    }
 }

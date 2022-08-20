@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyName;
+use App\Models\CuttingMultipleSend;
 use App\Models\MakingDyeingMultipleReceived;
 use App\Models\MakingDyeingRecived;
 use App\Models\MakingDyeingSend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use PDF;
 
-class MakingDyeingReceived extends Controller
+
+class MakingDyeingReceivedController extends Controller
 {
+    //
     //
     function index()
     {
@@ -159,5 +163,19 @@ class MakingDyeingReceived extends Controller
         // echo $id;
         MakingDyeingMultipleReceived::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function dyeingReceivedgeneratePDFview($dyeing_multiple_id)
+    {
+        // echo $dyeing_multiple_id;
+        $pdf = PDF::loadView('admin.making.dyeing-send.invoice', [
+            'dyeing_multiple_id' => $dyeing_multiple_id
+        ]);
+
+        return view('admin.making.dyeing-send.invoice', [
+
+            'dyeing_multiple_id' => $dyeing_multiple_id,
+
+        ]);
     }
 }

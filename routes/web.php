@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CompanyNameController;
+use App\Http\Controllers\CuttingSendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
 use App\Http\Controllers\LekraBrandController;
 use App\Http\Controllers\MakingDyeingReceived;
+use App\Http\Controllers\MakingDyeingReceivedController;
 use App\Http\Controllers\MakingDyeingSendController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
@@ -95,14 +97,31 @@ Route::get('/knittingDyeingMultipleDelete/{id}', [MakingDyeingSendController::cl
 
 
 // dyeing Received
-Route::get('making-dyeing-received', [MakingDyeingReceived::class, 'index'])->name('dyeingReceived');
-Route::post('making-dyeing-received-store', [MakingDyeingReceived::class, 'store'])->name('dyeingRecivedStore');
-Route::get('making-dyeing-received-show', [MakingDyeingReceived::class, 'show'])->name('dyeingReceivedShow');
-Route::get('making-dyeing-received-edit/{dyeing_id}', [MakingDyeingReceived::class, 'edit'])->name('dyeingReceivedEdit');
-Route::post('making-dyeing-received-update', [MakingDyeingReceived::class, 'update'])->name('deyingRecivedUpdate');
+Route::get('making-dyeing-received', [MakingDyeingReceivedController::class, 'index'])->name('dyeingReceived');
+Route::post('making-dyeing-received-store', [MakingDyeingReceivedController::class, 'store'])->name('dyeingRecivedStore');
+Route::get('making-dyeing-received-show', [MakingDyeingReceivedController::class, 'show'])->name('dyeingReceivedShow');
+Route::get('making-dyeing-received-edit/{dyeing_id}', [MakingDyeingReceivedController::class, 'edit'])->name('dyeingReceivedEdit');
+Route::post('making-dyeing-received-update', [MakingDyeingReceivedController::class, 'update'])->name('deyingRecivedUpdate');
+Route::get('/dyeingReceivedDelete/{id}', [MakingDyeingReceivedController::class, 'destroy'])->name('dyeingReceivedDelete');
+Route::get('making-dyeing-received-view/{dyeing_id}', [MakingDyeingReceivedController::class, 'dyeingReceivedView'])->name('dyeingReceivedView');
+Route::get('making-dyeing-received-multiple-edit/{dyeing_multiple_id}', [MakingDyeingReceivedController::class, 'dyeingReceivedMultipleEdit'])->name('dyeingReceivedMultipleEdit');
+Route::post('making-dyenig-received-multiple-update', [MakingDyeingReceivedController::class, 'dyeingReceivedMultipleUpdate'])->name('dyeingReceivedMultipleUpdate');
+Route::get('/makingDyeingRecevedMultipleDelete/{id}', [MakingDyeingReceivedController::class, 'dyeingReceivedMultipleDelete'])->name('knittingDyeingMultipleDelete');
+Route::get('making-dyeing-received-generate-pdf-view/{dyeing_multiple_id}', [MakingDyeingReceivedController::class, 'dyeingReceivedgeneratePDFview'])->name('dyeingReceivedPDFView');
 
 
 
+//cutting Send
+Route::get('cutting-send', [CuttingSendController::class, 'index'])->name('cuttingSend');
+Route::post('cutting-store-send', [CuttingSendController::class, 'store'])->name('cuttingSendStore');
+Route::get('cutting-send-show', [CuttingSendController::class, 'show'])->name('cuttingSendShow');
+Route::get('cutting-send-edit/{cutting_send_id}', [CuttingSendController::class, 'edit'])->name('cuttingSendEdit');
+Route::post('cutting-send-update', [CuttingSendController::class, 'update'])->name('cuttingSendUpdate');
+Route::get('/cuttingSendDelete/{id}', [CuttingSendController::class, 'destroy'])->name('cuttingSendDelete');
+Route::get('cutting-send-view/{cutting_id}', [CuttingSendController::class, 'cuttingSendView'])->name('cuttingSendView');
+Route::get('cutting-send-multiple-edit/{cutting_id}', [CuttingSendController::class, 'cuttingSendMultipleEdit'])->name('cuttingSendMultipleEdit');
+Route::post('cutting-send-multiple-update', [CuttingSendController::class, 'cuttingSendMultipleUpdate'])->name('cuttingSendMultipleUpdate');
+Route::get('/cutingSendMultipleDelete/{id}', [CuttingSendController::class, 'cutingSendMultipleDelete'])->name('cutingSendMultipleDelete');
 
 
 // copmany name

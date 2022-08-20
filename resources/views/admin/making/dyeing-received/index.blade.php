@@ -5,7 +5,7 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="page-title text-center">Making Dyeing Received Form</h3>
+                <h3 class="page-title text-center">Making Knitting Received Form</h3>
                 {{-- <ul class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ul> --}}
@@ -129,7 +129,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Balance</label>
                                         <div class="col-lg-9">
-                                            <input type="number" class="form-control balance" name="balance[]" step=0.00001  placeholder="Enter Rib : 148">
+                                            <input type="number" class="form-control balance" name="balance[]" step=0.001  placeholder="Enter Rib : 148">
                                             <span style="color:red"  id="balance_error" class="balance_error"></span>
                                         </div>
                                     </div>
@@ -203,7 +203,6 @@
             var lot_no = $('.lot_no').val();
             var body = $('.body').val();
             var rib = $('.rib').val();
-            var balance = $('.balance').val();
            
 
             var total_used_lekra = $('.total_used_lekra').val();
@@ -245,11 +244,6 @@
                 $(".rib").css('border','1px solid red');
                 $(".rib").focus();
 
-            }else if(balance==''){
-                $(".balance_error").text('Please enter your balance Id');
-                $(".balance").css('border','1px solid red');
-                $(".balance").focus();
-
             }
             else{
                 $(".received_chalan_id_error").text('');
@@ -270,10 +264,6 @@
                 $(".rib_error").text('');
                 $(".rib").css('border','1px solid green');
                 $(".rib").focus();
-
-                $(".balance_error").text('');
-                $(".balance").css('border','1px solid green');
-                $(".balance").focus();
                
 
 

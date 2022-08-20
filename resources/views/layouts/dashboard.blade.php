@@ -210,6 +210,15 @@
 									<li><a href="{{route('dyeingReceivedShow')}}">Dyeing Show</a></li>
 								</ul>
 							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingReceived' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingReceivedShow' ? 'active' : '' }}">
+								<a href="#"><i class="fe fe-document"></i> <span>Cutting Send</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('cuttingSend')}}">Cutting Send</a></li>
+									<li><a href="{{route('cuttingSendShow')}}">Cutting Show</a></li>
+								</ul>
+							</li>
+
+							
 							
 							<li class="submenu ">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>

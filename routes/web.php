@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
 use App\Http\Controllers\LekraBrandController;
+use App\Http\Controllers\MakingDyeingReceived;
 use App\Http\Controllers\MakingDyeingSendController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
@@ -72,13 +73,14 @@ Route::get('making-knitting-recived-multiple-edit/{knitting_received_multiple_id
 Route::get('/knittingRecivedMultipleDelete/{id}', [MakingKnittingReceivedController::class, 'knittingRecivedMultipleDelete'])->name('SutaBrandDelete');
 Route::POST('making-knitting-multiple-received-update', [MakingKnittingReceivedController::class, 'knittingRecivedMultipleUpdate'])->name('knittingRecivedMultipleUpdate');
 Route::get('making-knitting-recived-generate-pdf-view/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingRecivedgeneratePDFview'])->name('KnittingRecivedView');
+Route::get('making-knitting-recived-generate-pdf/{knitting_received_id}', [MakingKnittingReceivedController::class, 'knittingSendgeneratePDFDown'])->name('KnittingRecivedPDFDownload');
 
 
 
 
 // deying send
 Route::get('making-dyeing-send', [MakingDyeingSendController::class, 'index'])->name('dyeingSend');
-Route::post('making-dyeing-store', [MakingDyeingSendController::class, 'store'])->name('KnittingDayingSendStore');
+Route::post('making-dyeing-send-store', [MakingDyeingSendController::class, 'store'])->name('KnittingDayingSendStore');
 Route::post('/getColor', [MakingDyeingSendController::class, 'getColor']);
 Route::get('making-dyeing-send-show', [MakingDyeingSendController::class, 'show'])->name('dyeingSendShow');
 Route::get('making-dyeing-send-edit/{dyeing_id}', [MakingDyeingSendController::class, 'edit'])->name('dyeingSendEdit');
@@ -90,6 +92,14 @@ Route::post('making-dyenig-send-multiple-update', [MakingDyeingSendController::c
 Route::get('making-dyeing-send-generate-pdf-view/{dyeing_multiple_id}', [MakingDyeingSendController::class, 'dyeingSendgeneratePDFview'])->name('dyeingSendPDFView');
 Route::get('making-dyeing-send-generate-pdf/{dyeing_multiple_id}', [MakingDyeingSendController::class, 'dyeingSendgeneratePDFDown'])->name('dyeingSendPDFDownload');
 Route::get('/knittingDyeingMultipleDelete/{id}', [MakingDyeingSendController::class, 'dyeingSendMultipleDelete'])->name('knittingDyeingMultipleDelete');
+
+
+// dyeing Received
+Route::get('making-dyeing-received', [MakingDyeingReceived::class, 'index'])->name('dyeingReceived');
+Route::post('making-dyeing-received-store', [MakingDyeingReceived::class, 'store'])->name('dyeingRecivedStore');
+Route::get('making-dyeing-received-show', [MakingDyeingReceived::class, 'show'])->name('dyeingReceivedShow');
+Route::get('making-dyeing-received-edit/{dyeing_id}', [MakingDyeingReceived::class, 'edit'])->name('dyeingReceivedEdit');
+Route::post('making-dyeing-received-update', [MakingDyeingReceived::class, 'update'])->name('deyingRecivedUpdate');
 
 
 

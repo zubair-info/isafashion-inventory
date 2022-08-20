@@ -6,10 +6,10 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="page-title">Welcome Admin!</h3>
-                <ul class="breadcrumb">
+                <h3 class="page-title">Making Knitting Recived Edit Form</h3>
+                {{-- <ul class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>
@@ -18,17 +18,14 @@
     <div class="row">
         <div class="col-xl-8 col-sm-12 col-12">
             <div class="card">
-               
-                    <div class="card-header">
-                        <h4 class="card-title">Making Knitting Recived Edit Form</h4>
-                    </div>
+            
                     <div class="card-body">
                         <form action="{{route('KnittingRecivedUpdate')}}" method="POST">
                             @csrf
 
                             <input type="hidden" name="id" class="form-control"  value="{{ $all_received_chalan_id->id}}">
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">received Chalan Id</label>
+                                <label class="col-lg-3 col-form-label">Received Chalan Id</label>
                                 <div class="col-lg-9">                                                             
                                     <select class="form-control select2_search"  name="send_chalan_id">  
                                         <option>--Select Option--</option>  

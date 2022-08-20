@@ -154,40 +154,40 @@
 							<li class="menu-title"> 
 								<span>Admin</span>
 							</li>
-							<li class="active"> 
+							<li class="{{ Route::CurrentRouteName() == 'home' ? 'active' : '' }}"> 
 								<a href="{{route('home')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
 
-                            <li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> User</span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
+                            <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
+								<a href="{{ route('user') }}"><i class="fe fe-document"></i> <span> User</span></a>
+								{{-- <ul style="display: none;">
 									<li><a href="{{ route('user') }}"">User List</a></li>
-								</ul>
+								</ul> --}}
 							</li>	
 							
-							<li >> 
+							<li class="{{ Route::CurrentRouteName() == 'companyName' ? 'active' : '' }}">
 								<a href="{{route('companyName')}}"><i class="fe fe-home"></i> <span>Company Name</span></a>
 							</li>
-							<li class=""> 
+							<li class="{{ Route::CurrentRouteName() == 'brandName' ? 'active' : '' }}"> 
 								<a href="{{route('brandName')}}"><i class="fe fe-home"></i> <span>Brand Name</span></a>
 							</li>
-							<li class=""> 
+							<li class="{{ Route::CurrentRouteName() == 'sutaName' ? 'active' : '' }}"> 
 								<a href="{{route('sutaName')}}"><i class="fe fe-home"></i> <span>Suta Name</span></a>
 							</li>
-							<li class=""> 
+							<li class="{{ Route::CurrentRouteName() == 'kaporName' ? 'active' : '' }}"> 
 								<a href="{{route('kaporName')}}"><i class="fe fe-home"></i> <span>Kapor Name</span></a>
 							</li>
-							<li class=""> 
+							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
 								<a href="{{route('lekraBrandName')}}"><i class="fe fe-home"></i> <span>Lekra Brand </span></a>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }}">
+							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
 								<a href="#"><i class="fe fe-document"></i> <span>Knitting Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_send')}}">Knitting Send</a></li>
 									<li><a href="{{route('KnittingSendShow')}}">Knitting Show</a></li>
 								</ul>
 							</li>
-							<li class="submenu">
+							<li class="submenu {{ Route::CurrentRouteName() == 'making_knitting_recived' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'KnittingReceivedShow' ? 'active' : '' }}">
 								<a href="#"><i class="fe fe-document"></i> <span>Knitting Recived</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_recived')}}">Knitting Recived</a></li>
@@ -195,15 +195,23 @@
 								</ul>
 							</li>
 
-							<li class="submenu">
+							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingSend' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingSendShow' ? 'active' : '' }}">
 								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('dyeingSend')}}">Dyeing Send</a></li>
 									<li><a href="{{route('dyeingSendShow')}}">Dyeing Show</a></li>
 								</ul>
 							</li>
+
+							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingReceived' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingReceivedShow' ? 'active' : '' }}">
+								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Received</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('dyeingReceived')}}">Dyeing Received</a></li>
+									<li><a href="{{route('dyeingReceivedShow')}}">Dyeing Show</a></li>
+								</ul>
+							</li>
 							
-							<li class="submenu">
+							<li class="submenu ">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="#">Invoice Reports</a></li>

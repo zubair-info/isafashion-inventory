@@ -6,7 +6,7 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="page-title">Making Dyeing Send View</h3>
+                <h3 class="page-title">Markat Multiple Received View</h3>
                 {{-- <ul class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ul> --}}
@@ -26,49 +26,44 @@
                         <thead>
                           <tr>
                             <th>id</th>
-                            <th>Received Chalan Id</th>
-                            <th>Dyeing Send Id</th>
-                            <th>Color</th>
+                            <th>Kapor</th>
                             <th>Roll</th>
+                            <th>Rate</th>
                             <th>Body</th>
-                            <th>Rib</th>
-                            <th>Total</th>
-                            <th>Lost Percentage</th>
+                            <th>Balance</th>
                             <th>Action</th>
+
                           </tr>
                         </thead>
-                        {{-- {{dd($all_dyeing_send)}} --}}
+                        {{-- {{dd($all_markat_received)}} --}}
             
-                        @foreach ($all_dyeing_send as $key=>$dyeing_send)   
+                        @foreach ($all_markat_received as $key=>$markat_received)   
                             <tbody>
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$dyeing_send->received_chalan_id}}</td>
-                                    <td>{{$dyeing_send->dyeing_send_id}}</td>
-                                    <td>{{$dyeing_send->color}}</td>
-                                    <td>{{$dyeing_send->roll}}</td>
-                                    <td>{{$dyeing_send->body}}</td>
-                                    <td>{{$dyeing_send->rib}}</td>
-                                    <td>{{$dyeing_send->total}}</td>
-                                    <td>{{$dyeing_send->lost_percentage}}</td>
+                                    <td>{{$markat_received->rel_to_kapor->kapor_name}}</td>
+                                    <td>{{$markat_received->roll}}</td>
+                                    <td>{{$markat_received->rate}}</td>
+                                    <td>{{$markat_received->body}}</td>
+                                    <td>{{$markat_received->balance}}</td>
                                     <td>
-                                        <a  class="btn btn-sm bg-warning-light"href="{{route('dyeingSendMultipleEdit',$dyeing_send->id)}}">
+                                        <a  class="btn btn-sm bg-warning-light"href="{{route('markatReceivedMultipleEdit',$markat_received->id)}}">
                                         <i class="fe fe-pencil"></i> Edit
                                          </a>
-                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$dyeing_send->id}}">
+                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$markat_received->id}}">
                                             <i class="fe fe-trash"></i> Delete
                                     </td>
                                 </tr>
 
                                 <!-- Delete Modal -->
-                                <div class="modal fade delete_modal" id="delete_modal_{{$dyeing_send->id}}" aria-hidden="true" role="dialog">
+                                <div class="modal fade delete_modal" id="delete_modal_{{$markat_received->id}}" aria-hidden="true" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered" role="document" >
                                         <div class="modal-content">
                                             <div class="modal-body">
                                                 <div class="form-content p-2">
                                                     <h4 class="modal-title">Delete</h4>
                                                     <p class="mb-4">Are you sure want to delete?</p>
-                                                    <button  name="{{$dyeing_send->id }}" type="button" class="btn btn-primary btn_delete">Delete </button>
+                                                    <button  name="{{$markat_received->id }}" type="button" class="btn btn-primary btn_delete">Delete </button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
@@ -133,7 +128,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url:"/knittingSendLekraBrandDelete/"+id,
+                url:"/markatRecevedMultipleDelete/"+id,
                 data: {
                     "id": id,
                     "_token": token,

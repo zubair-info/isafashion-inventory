@@ -134,7 +134,7 @@ Route::get('cutting-received', [CuttingReceivedController::class, 'index'])->nam
 Route::post('cutting-store-received', [CuttingReceivedController::class, 'store'])->name('cuttingReceivedStore');
 Route::get('cutting-received-show', [CuttingReceivedController::class, 'show'])->name('cuttingReceivedShow');
 Route::get('/cuttingReceivedDelete/{id}', [CuttingReceivedController::class, 'destroy'])->name('cuttingReceivedDelete');
-Route::get('cutting-received-view/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedView'])->name('cuttingSendView');
+Route::get('cutting-received-view/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedView'])->name('cuttingReceivedView');
 Route::get('cutting-received-multiple-edit/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedMultipleEdit'])->name('cuttingReceivedMultipleEdit');
 Route::post('cutting-received-multiple-update', [CuttingReceivedController::class, 'cuttingReceivedMultipleUpdate'])->name('cuttingReceivedMultipleUpdate');
 Route::get('/cuttingRecevedMultipleDelete/{id}', [CuttingReceivedController::class, 'cuttingRecevedMultipleDelete'])->name('cuttingRecevedMultipleDelete');
@@ -143,6 +143,18 @@ Route::get('cutting-received-generate-pdf-download/{cutting_received_id}', [Cutt
 
 
 Route::get('markat-received', [MarkatReceivedController::class, 'index'])->name('markatReceived');
+Route::post('markat-received', [MarkatReceivedController::class, 'store'])->name('markatReceivedStore');
+Route::get('markat-received-show', [MarkatReceivedController::class, 'show'])->name('markatReceivedShow');
+Route::get('/markatReceivedDelete/{id}', [MarkatReceivedController::class, 'destroy'])->name('markatReceivedDelete');
+Route::get('markat-received-edit/{markat_received_id}', [MarkatReceivedController::class, 'edit'])->name('markatReceivedEdit');
+Route::post('markat-received-update', [MarkatReceivedController::class, 'update'])->name('markatRecivedUpdate');
+Route::get('markat-received-view/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedView'])->name('markatReceivedView');
+Route::get('markat-received-multiple-edit/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedMultipleEdit'])->name('markatReceivedMultipleEdit');
+Route::post('markat-received-multiple-update', [MarkatReceivedController::class, 'markatRecivedMultipleUpdate'])->name('markatRecivedMultipleUpdate');
+Route::get('/markatRecevedMultipleDelete/{id}', [MarkatReceivedController::class, 'cuttingRecevedMultipleDelete'])->name('markatRecevedMultipleDelete');
+Route::get('markat-received-generate-pdf-view/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedPDFView'])->name('markatReceivedPDFView');
+Route::get('markat-received-generate-pdf-download/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivdPDFDownload'])->name('markatReceivdPDFDownload');
+
 
 
 // copmany name

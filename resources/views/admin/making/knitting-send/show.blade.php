@@ -136,7 +136,7 @@
                     success: function(data){
                         $('.delete_modal').hide();
                         $('.modal-backdrop').hide();
-                        toastr.success(data.success);
+                        toastr.error(data.success);
                         window.location.reload();
 
                     }

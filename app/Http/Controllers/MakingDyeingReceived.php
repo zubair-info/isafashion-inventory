@@ -8,6 +8,7 @@ use App\Models\MakingDyeingRecived;
 use App\Models\MakingDyeingSend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use PDF;
 
 class MakingDyeingReceived extends Controller
 {

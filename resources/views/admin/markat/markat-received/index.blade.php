@@ -42,8 +42,8 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label">Send Chalan Id</label>
                                     <div class="col-lg-9">
-                                        <input type="number" id="send_chalan_id" name="send_chalan_id" class="form-control send_chalan_id" placeholder="Chalan Id : 11097">
-                                        <span style="color:red"  class="send_chalan_id_error" id="send_chalan_id_error" ></span> 
+                                        <input type="number" id="received_chalan_id" name="received_chalan_id" class="form-control received_chalan_id" placeholder="Chalan Id : 11097">
+                                        <span style="color:red"  class="received_chalan_id_error" id="received_chalan_id_error" ></span> 
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -77,72 +77,48 @@
 
                                 <div class="form_create" id="form_create_1" form_count="1">
                                     <input type="hidden" name="form_count[]" value="1" class="form-control"> 
+
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Received Chalan Id</label>
+                                        <label class="col-lg-3 col-form-label">Kapor</label>
                                         <div class="col-lg-9">
-                                            <select class="form-control received_chalan_id"  name="received_chalan_id[]"  id="received_chalan_id"> 
-                                                
-                                          
-                                                <option value="">--Select Option--</option>  
-                                                @foreach ($knetting_received_chalan_id as $received_chalan_id)    
-                                                    <option value="{{$received_chalan_id->received_chalan_id}}">{{$received_chalan_id->received_chalan_id}}</option>  
+                                            <select class="form-control kapor_id"  name="kapor_id[]" id="kapor_id">  
+                                                <option  value="">--Select Option--</option>  
+                                                @foreach ($all_kapor_name as $kapor)    
+                                                    <option value="{{$kapor->id}}">{{$kapor->kapor_name}}</option>  
                                                 @endforeach
                                             </select>
-                                            <span style="color:red" class="received_chalan_id_error"> </span>
+                                            <span style="color:red" class="kapor_id_error"  id="kapor_id_error" ></span> 
                                         </div>
-
-                                    </div>
+                                    </div> 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Color</label>
+                                        <label class="col-lg-3 col-form-label">Rate</label>
                                         <div class="col-lg-9">
-                                            
-                                            <select class="form-control color"  name="color[]"  id="color_id">  
-                                                <option data-display="- Please select -" value="">Choose A Option</option>
-                                                {{-- <option value="">--Select Option--</option>  
-                                                @foreach ($knitting_received_colors as $knitting_received_color)    
-                                                    <option value="{{$knitting_received_color->color}}">{{$knitting_received_color->color}}</option>  
-                                                @endforeach --}}
-                                            </select>
-                                            <span style="color:red" class="color_error"  id="color_error" ></span>
+                                            <input type="number" step="0.0000001" class="form-control rate" id="rate" name="rate[]" placeholder="Enter Rate : 148" >
+                                            <span style="color:red"  id="rate_error" class="rate_error" ></span> 
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Roll</label>
                                         <div class="col-lg-9">
-                                            <input type="number" class="form-control roll" name="roll[]" step=0.001   placeholder="Enter  Roll : 10" >
+                                            <input type="number" class="form-control roll" name="roll[]" step="any"   placeholder="Enter  Roll : 10" >
                                             <span style="color:red" class="roll_error"  id="roll_error" ></span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Body</label>
                                         <div class="col-lg-9">
-                                            <input type="number"  step=0.001 class="form-control body" name="body[]" placeholder="Enter Body : 254.4">
+                                            <input type="number"   step="any"  class="form-control body" name="body[]" placeholder="Enter Body : 254.4">
                                             <span style="color:red" class="body_error" id="body_error" ></span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Rib</label>
+                                        <label class="col-lg-3 col-form-label">Balance</label>
                                         <div class="col-lg-9">
-                                            <input type="number" class="form-control rib" name="rib[]" step=0.001  placeholder="Enter Rib : 148">
-                                            <span style="color:red"  id="rib_error" class="rib_error"></span>
+                                            <input type="number" class="form-control balance" name="balance[]"  step="any"   placeholder="Enter Rib : 148">
+                                            <span style="color:red"  id="balance_error" class="balance_error"></span>
                                         </div>
                                     </div>
-                                    
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Total</label>
-                                        <div class="col-lg-9">
-                                            <input type="number" class="form-control total" name="total[]" step=0.001  placeholder="Enter Total : 27.36">
-                                            <span style="color:red" class="total_error"  id="total_error" ></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Lost Percentage</label>
-                                        <div class="col-lg-9">
-                                            <input type="number" class="form-control lost_percentage" name="lost_percentage[]" step=0.001  placeholder="Enter Total : 5">
-                                            <span style="color:red" class="lost_percentage_error"  id="lost_percentage_error" ></span>
-                                        </div>
-                                    </div>
-                                                       
+                                                                                         
                                 </div>
                                 
                                 <div id="knitting_received_form"></div>
@@ -176,14 +152,14 @@
       
         $( "#knitting_received_step_one").click(function() {
            
-            var send_chalan_id = $('.send_chalan_id').val();
+            var received_chalan_id = $('.received_chalan_id').val();
             var date = $('.date').val();
             var company_id = $('.company_id').val();
             // alert(send_chalan_id);
-            if(send_chalan_id==''){
-                $(".send_chalan_id_error").text('Please enter your send chalan Id');
-                $(".send_chalan_id").css('border','1px solid red');
-                $(".send_chalan_id").focus();
+            if(received_chalan_id==''){
+                $(".received_chalan_id_error").text('Please enter your received chalan Id');
+                $(".received_chalan_id").css('border','1px solid red');
+                $(".received_chalan_id").focus();
 
             }
             else if(date==''){
@@ -199,9 +175,9 @@
 
             }
             else{
-                $(".send_chalan_id_error").text('');
-                $(".send_chalan_id").css('border','1px solid green');
-                $(".send_chalan_id").focus();
+                $(".received_chalan_id_error").text('');
+                $(".received_chalan_id").css('border','1px solid green');
+                $(".received_chalan_id").focus();
                 $(".date_error").text('');
                 $(".date").css('border','1px solid green');
                 $(".date").focus();
@@ -218,82 +194,59 @@
 
         });
         $( "#knitting_received_step_two").click(function() {
-            // var send_chalan_ids = $('.send_chalan_ids').val();
-            var received_chalan_id = $('.received_chalan_id').val();
+
             var body = $('.body').val();
-            var rib = $('.rib').val();
-            var color = $('.color').val();
+            var kapor_id = $('.kapor_id').val();
+            var rate = $('.rate').val();
             var roll = $('.roll').val();
             var total = $('.total').val();
-            var lost_percentage = $('.lost_percentage').val();
-            if(received_chalan_id==''){
-                $(".received_chalan_id_error").text('Please enter your Received Chalan Id');
-                $(".received_chalan_id").css('border','1px solid red');
-                $(".received_chalan_id").focus();
+            var balance = $('.balance').val();
+            if(kapor_id==''){
+                $(".kapor_id_error").text('Please enter your kapor name');
+                $(".kapor_id").css('border','1px solid red');
+                $(".kapor_id").focus();
 
-            }
-            else if(color==''){
-                $(".color_error").text('Please enter your rate Id');
-                $(".color").css('border','1px solid red');
-                $(".color").focus();
+            }else if(rate==''){
+                $(".rate_error").text('Please enter your rate Id');
+                $(".rate").css('border','1px solid red');
+                $(".rate").focus();
 
             }else if(roll==''){
-                $(".roll_error").text('Please enter your rate Id');
+                $(".roll_error").text('Please enter your roll');
                 $(".roll").css('border','1px solid red');
                 $(".roll").focus();
 
             }else if(body==''){
-                $(".body_error").text('Please enter your weight Id');
+                $(".body_error").text('Please enter your body');
                 $(".body").css('border','1px solid red');
                 $(".body").focus();
 
-            }else if(rib==''){
-                $(".rib_error").text('Please enter your cartoon Id');
-                $(".rib").css('border','1px solid red');
-                $(".rib").focus();
+            }else if(balance==''){
+                $(".balance_error").text('Please enter your balance');
+                $(".balance").css('border','1px solid red');
+                $(".balance").focus();
 
-            }else if(total==''){
-                $(".total_error").text('Please enter your rate Id');
-                $(".total").css('border','1px solid red');
-                $(".total").focus();
-
-            }else if(lost_percentage==''){
-                $(".lost_percentage_error").text('Please enter your lost percentage');
-                $(".lost_percentage").css('border','1px solid red');
-                $(".lost_percentage").focus();
             }
-            // else if(send_chalan_ids==''){
-            //     $(".send_chalan_ids_error").text('Please enter your date');
-            //     $(".send_chalan_ids").css('border','1px solid red');
-            //     $(".send_chalan_ids").focus();
-            // }
-
             else{
-                $(".color_error").text('');
-                $(".color").css('border','1px solid green');
-                $(".color").focus();
+               
+                $(".kapor_id_error").text('');
+                $(".kapor_id").css('border','1px solid green');
+                $(".kapor_id").focus();
+                $(".rate_error").text('');
+                $(".rate").css('border','1px solid green');
+                $(".rate").focus();
                 $(".roll_error").text('');
                 $(".roll").css('border','1px solid green');
                 $(".roll").focus();
                 $(".body_error").text('');
                 $(".body").css('border','1px solid green');
                 $(".body").focus();
-                $(".rib_error").text('');
-                $(".rib").css('border','1px solid green');
-                $(".rib").focus();
-                $(".total_error").text('');
-                $(".total").css('border','1px solid green');
-                $(".total").focus();
-                $(".lost_percentage_error").text('');
-                $(".lost_percentage").css('border','1px solid green');
-                $(".lost_percentage").focus();
 
                 $('#knitting_received_step_two').attr( 'type','submit');
                 
 
                 $('#form_knitting_received_step_one').hide();
                 $('#form_knitting_received_step_two').show();
-
 
             }
 
@@ -318,68 +271,45 @@
             <button type="button" class="btn btn-danger" onclick="form_remove(`+count+`)"><i class="fa fa-minus"></i> Remove</button>
             <div class="form_knitting_received_step_one" id="form_knitting_received_step_one">
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Received Chalan Id</label>
-                    <div class="col-lg-9">
-                        <select  class="form-control received_chalan_id"  name="received_chalan_id[]"  id="received_chalan_id">  
-                            <option value="">--Select Option--</option>  
-                            @foreach ($knetting_received_chalan_id as $received_chalan_id)    
-                                <option value="{{$received_chalan_id->received_chalan_id}}">{{$received_chalan_id->received_chalan_id}}</option>  
-                            @endforeach
-                        </select>
-                        <span style="color:red" class="send_chalan_id_error"> </span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Color</label>
-                    <div class="col-lg-9">
-                        
-                       <select class="form-control color"  name="color[]"  id="color_id">  
-                            <option data-display="- Please select -" value="">Choose A Option</option>
-                            //  <option value="">--Select Option--</option>  
-                          {{-- @foreach ($knitting_received_colors as $knitting_received_color)    
-                                <option value="{{$knitting_received_color->color}}">{{$knitting_received_color->color}}</option>  
-                            @endforeach --}}
-                        </select> 
-                        <span style="color:red" class="color_error"  id="color_error" ></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Roll</label>
-                    <div class="col-lg-9">
-                        <input type="number" class="form-control roll" name="roll[]" step=0.001   placeholder="Enter  Roll : 10" >
-                        <span style="color:red" class="roll_error"  id="roll_error" ></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Body</label>
-                    <div class="col-lg-9">
-                        <input type="number"  step=0.001 class="form-control body" name="body[]" placeholder="Enter Body : 254.4">
-                        <span style="color:red" class="body_error" id="body_error" ></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Rib</label>
-                    <div class="col-lg-9">
-                        <input type="number" class="form-control rib" name="rib[]" step=0.001  placeholder="Enter Rib : 148">
-                        <span style="color:red"  id="rib_error" class="rib_error"></span>
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Total</label>
-                    <div class="col-lg-9">
-                        <input type="number" class="form-control total" name="total[]" step=0.001  placeholder="Enter Total : 27.36">
-                        <span style="color:red" class="total_error"  id="total_error" ></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Lost Percentage</label>
-                    <div class="col-lg-9">
-                        <input type="number" class="form-control total" name="lost_percentage[]" step=0.001  placeholder="Enter Total : 5">
-                        <span style="color:red" class="lost_percentage_error"  id="lost_percentage_error" ></span>
-                    </div>
-                </div>
+                                        <label class="col-lg-3 col-form-label">Kapor</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control kapor_id"  name="kapor_id[]" id="kapor_id">  
+                                                <option  value="">--Select Option--</option>  
+                                                @foreach ($all_kapor_name as $kapor)    
+                                                    <option value="{{$kapor->id}}">{{$kapor->kapor_name}}</option>  
+                                                @endforeach
+                                            </select>
+                                            <span style="color:red" class="kapor_id_error"  id="kapor_id_error" ></span> 
+                                        </div>
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Rate</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" step="0.0000001" class="form-control rate" id="rate" name="rate[]" placeholder="Enter Rate : 148" >
+                                            <span style="color:red"  id="rate_error" class="rate_error" ></span> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Roll</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" class="form-control roll" name="roll[]" step="any"   placeholder="Enter  Roll : 10" >
+                                            <span style="color:red" class="roll_error"  id="roll_error" ></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Body</label>
+                                        <div class="col-lg-9">
+                                            <input type="number"   step="any"  class="form-control body" name="body[]" placeholder="Enter Body : 254.4">
+                                            <span style="color:red" class="body_error" id="body_error" ></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Balance</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" class="form-control balance" name="balance[]"  step="any"   placeholder="Enter Rib : 148">
+                                            <span style="color:red"  id="balance_error" class="balance_error"></span>
+                                        </div>
+                                    </div>
             </div>`);
         count++;
         // add_form();

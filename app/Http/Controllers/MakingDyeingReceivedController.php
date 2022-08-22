@@ -14,7 +14,10 @@ use PDF;
 
 class MakingDyeingReceivedController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     function index()
     {
@@ -168,14 +171,22 @@ class MakingDyeingReceivedController extends Controller
     function dyeingReceivedgeneratePDFview($dyeing_multiple_id)
     {
         // echo $dyeing_multiple_id;
-        $pdf = PDF::loadView('admin.making.dyeing-send.invoice', [
+        $pdf = PDF::loadView('admin.making.dyeing-received.invoice', [
             'dyeing_multiple_id' => $dyeing_multiple_id
         ]);
 
-        return view('admin.making.dyeing-send.invoice', [
+        return view('admin.making.dyeing-received.invoice', [
 
             'dyeing_multiple_id' => $dyeing_multiple_id,
 
         ]);
+    }
+
+    function dyeingReceivdPDFDownload($dyeing_multiple_id)
+    {
+        $pdf = PDF::loadView('admin.making.dyeing-received.invoice', [
+            'dyeing_multiple_id' => $dyeing_multiple_id
+        ]);
+        return $pdf->download('dyeingReceived.pdf');
     }
 }

@@ -45,9 +45,9 @@
                                                         <i class="fe fe-eye"></i> View
                                                     </a>
                                                     <a  class="btn btn-sm bg-info-light" target="_blank" href="{{route('dyeingReceivedPDFView',$dyeing_received->id)}}">
-                                                        <i class="fe fe-eye"></i> Invoice View
+                                                        <i class="fe fe-eye"></i> Invoice
                                                     </a>
-                                                    <a  class="btn btn-sm bg-success-light"href="{{route('dyeingSendPDFDownload',$dyeing_received->id)}}">
+                                                    <a  class="btn btn-sm bg-success-light"href="{{route('dyeingReceivdPDFDownload',$dyeing_received->id)}}">
                                                         <i class="fa fa-download" aria-hidden="true"></i></i> Download
                                                     </a>
                                                     <a  class="btn btn-sm bg-warning-light"href="{{route('dyeingReceivedEdit',$dyeing_received->id)}}">

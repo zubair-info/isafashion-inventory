@@ -16,6 +16,10 @@ use PDF;
 
 class MakingKnittingSendController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //view
 
     function index()

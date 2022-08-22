@@ -11,6 +11,10 @@ use Illuminate\Support\Carbon;
 
 class MakingDyeingReceived extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     function index()
     {

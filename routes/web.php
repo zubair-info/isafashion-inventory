@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CompanyNameController;
+use App\Http\Controllers\CuttingReceivedController;
 use App\Http\Controllers\CuttingSendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -12,7 +13,9 @@ use App\Http\Controllers\MakingDyeingReceivedController;
 use App\Http\Controllers\MakingDyeingSendController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
+use App\Http\Controllers\MarkatReceivedController;
 use App\Http\Controllers\SutaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +111,7 @@ Route::get('making-dyeing-received-multiple-edit/{dyeing_multiple_id}', [MakingD
 Route::post('making-dyenig-received-multiple-update', [MakingDyeingReceivedController::class, 'dyeingReceivedMultipleUpdate'])->name('dyeingReceivedMultipleUpdate');
 Route::get('/makingDyeingRecevedMultipleDelete/{id}', [MakingDyeingReceivedController::class, 'dyeingReceivedMultipleDelete'])->name('knittingDyeingMultipleDelete');
 Route::get('making-dyeing-received-generate-pdf-view/{dyeing_multiple_id}', [MakingDyeingReceivedController::class, 'dyeingReceivedgeneratePDFview'])->name('dyeingReceivedPDFView');
+Route::get('making-dyeing-received-generate-pdf/{dyeing_multiple_id}', [MakingDyeingReceivedController::class, 'dyeingReceivdPDFDownload'])->name('dyeingReceivdPDFDownload');
 
 
 
@@ -122,6 +126,23 @@ Route::get('cutting-send-view/{cutting_id}', [CuttingSendController::class, 'cut
 Route::get('cutting-send-multiple-edit/{cutting_id}', [CuttingSendController::class, 'cuttingSendMultipleEdit'])->name('cuttingSendMultipleEdit');
 Route::post('cutting-send-multiple-update', [CuttingSendController::class, 'cuttingSendMultipleUpdate'])->name('cuttingSendMultipleUpdate');
 Route::get('/cutingSendMultipleDelete/{id}', [CuttingSendController::class, 'cutingSendMultipleDelete'])->name('cutingSendMultipleDelete');
+Route::get('cutting-send-generate-pdf-view/{cutting_send_id}', [CuttingSendController::class, 'cuttingSendPDFView'])->name('cuttingSendPDFView');
+
+
+// cutting Received
+Route::get('cutting-received', [CuttingReceivedController::class, 'index'])->name('cuttingReceived');
+Route::post('cutting-store-received', [CuttingReceivedController::class, 'store'])->name('cuttingReceivedStore');
+Route::get('cutting-received-show', [CuttingReceivedController::class, 'show'])->name('cuttingReceivedShow');
+Route::get('/cuttingReceivedDelete/{id}', [CuttingReceivedController::class, 'destroy'])->name('cuttingReceivedDelete');
+Route::get('cutting-received-view/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedView'])->name('cuttingSendView');
+Route::get('cutting-received-multiple-edit/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedMultipleEdit'])->name('cuttingReceivedMultipleEdit');
+Route::post('cutting-received-multiple-update', [CuttingReceivedController::class, 'cuttingReceivedMultipleUpdate'])->name('cuttingReceivedMultipleUpdate');
+Route::get('/cuttingRecevedMultipleDelete/{id}', [CuttingReceivedController::class, 'cuttingRecevedMultipleDelete'])->name('cuttingRecevedMultipleDelete');
+Route::get('cutting-received-generate-pdf-view/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivedPDFView'])->name('cuttingReceivedPDFView');
+Route::get('cutting-received-generate-pdf-download/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivdPDFDownload'])->name('cuttingReceivdPDFDownload');
+
+
+Route::get('markat-received', [MarkatReceivedController::class, 'index'])->name('markatReceived');
 
 
 // copmany name

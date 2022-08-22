@@ -32,8 +32,8 @@
             	<div class="container">
                 	<div class="loginbox">
                     	<div class="login-left">
-							{{-- <img class="img-fluid" src="{{ asset('backend/assets/img/logo-white.png') }}" alt="Logo"> --}}
-							<h1 class="text-white " style="font-size: 50px">bitBirds</h1>
+							<img class="img-fluid" src="https://bitbirds.com/web/wp-content/uploads/2021/11/bitBirds-white-logo-300x77.png" alt="Logo">
+							{{-- <h1 class="text-white " style="font-size: 50px">bitBirds</h1> --}}
                         </div>
                         <div class="login-right">
 							<div class="login-right-wrap">

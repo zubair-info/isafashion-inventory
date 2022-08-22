@@ -14,6 +14,10 @@ use PDF;
 
 class MakingDyeingSendController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     function index()
     {

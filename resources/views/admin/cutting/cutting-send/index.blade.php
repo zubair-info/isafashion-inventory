@@ -81,14 +81,14 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Roll</label>
                                         <div class="col-lg-9">
-                                            <input type="number" class="form-control roll" name="roll" step=0.001   placeholder="Enter  Roll : 10" >
+                                            <input type="number" class="form-control roll" name="roll[]" step=0.001   placeholder="Enter  Roll : 10" >
                                             <span style="color:red" class="roll_error"  id="roll_error" ></span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Balance</label>
                                         <div class="col-lg-9">
-                                            <input type="number" class="form-control balance" name="balance" step=0.00001  placeholder="Enter Rib : 148">
+                                            <input type="number" class="form-control balance" name="balance[]" step=0.00001  placeholder="Enter Rib : 148">
                                             <span style="color:red"  id="balance_error" class="balance_error"></span>
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label">Roll</label>
                     <div class="col-lg-9">
-                        <input type="number" class="form-control roll" name="roll[]" step=0.001   placeholder="Enter  Roll : 10" >
+                        <input type="number" class="form-control roll" name="roll[]" step=0.000001   placeholder="Enter  Roll : 10" >
                         <span style="color:red" class="roll_error"  id="roll_error" ></span>
                     </div>
                 </div>

@@ -7,9 +7,14 @@ use App\Models\CuttingMultipleSend;
 use App\Models\CuttingSend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use PDF;
 
 class CuttingSendController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     function index()
     {
@@ -129,5 +134,19 @@ class CuttingSendController extends Controller
     {
         CuttingMultipleSend::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function cuttingSendPDFView($cutting_send_id)
+    {
+
+        $pdf = PDF::loadView('admin.cutting.cutting-send.invoice', [
+            'cutting_send_id' => $cutting_send_id
+        ]);
+
+        return view('admin.cutting.cutting-send.invoice', [
+
+            'cutting_send_id' => $cutting_send_id,
+
+        ]);
     }
 }

@@ -8,10 +8,11 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon.png')}}">
+        {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon.png')}}"> --}}
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css')}}">
+		<link rel="icon" type="image/x-icon" href="https://bitbirds.com/web/wp-content/uploads/2021/10/bitBirds_fav.png">
 		
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{ asset('backend/assets/css/font-awesome.min.css')}}">
@@ -44,14 +45,15 @@
             <div class="header">
 			
 				<!-- Logo -->
-                <div class="header-left">
-                    <a href="index.html" class="logo"  style="margin-top:10px;">
-						{{-- <img src="{{ asset('backend/assets/img/bitBirdslogo.png')}}" alt="Logo"> --}}
-						<h2>bitBirds</h2>
+                <div class="header-left" style="background: linear-gradient(180deg, #1b5a90, #00d0f1);">
+                    <a href="index.html" class="logo" >
+						<img src="{{ asset('backend/assets/img/bitBirdslogo.png')}}" alt="Logo">
+					
+						{{-- <h2>bitBirds</h2> --}}
 					</a>
-					<a href="index.html" class="logo logo-small" style="margin-top:10px;">
-						<h2>bitBirds</h2>
-						{{-- <img src="{{ asset('backend/assets/img/bitBirdslogo.png')}}" alt="Logo" width="30" height="30"> --}}
+					<a href="index.html" class="logo logo-small">
+						{{-- <h2>bitBirds</h2> --}}
+						<img src="https://bitbirds.com/web/wp-content/uploads/2021/10/bitBirds_fav.png" alt="Logo" width="80" height="80">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -159,36 +161,36 @@
 							</li>
 
                             <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
-								<a href="{{ route('user') }}"><i class="fe fe-document"></i> <span> User</span></a>
+								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> User</span></a>
 								{{-- <ul style="display: none;">
 									<li><a href="{{ route('user') }}"">User List</a></li>
 								</ul> --}}
 							</li>	
 							
 							<li class="{{ Route::CurrentRouteName() == 'companyName' ? 'active' : '' }}">
-								<a href="{{route('companyName')}}"><i class="fe fe-home"></i> <span>Company Name</span></a>
+								<a href="{{route('companyName')}}"><i class="fa fa-building-o" aria-hidden="true"></i> <span>Company Name</span></a>
 							</li>
 							<li class="{{ Route::CurrentRouteName() == 'brandName' ? 'active' : '' }}"> 
-								<a href="{{route('brandName')}}"><i class="fe fe-home"></i> <span>Brand Name</span></a>
+								<a href="{{route('brandName')}}"><i class="fa fa-bitcoin"></i> <span>Brand Name</span></a>
 							</li>
 							<li class="{{ Route::CurrentRouteName() == 'sutaName' ? 'active' : '' }}"> 
-								<a href="{{route('sutaName')}}"><i class="fe fe-home"></i> <span>Suta Name</span></a>
+								<a href="{{route('sutaName')}}"><i class="fa fa-skype"></i><span>Suta Name</span></a>
 							</li>
 							<li class="{{ Route::CurrentRouteName() == 'kaporName' ? 'active' : '' }}"> 
-								<a href="{{route('kaporName')}}"><i class="fe fe-home"></i> <span>Kapor Name</span></a>
+								<a href="{{route('kaporName')}}"><i class="fa fa-scissors"></i> <span>Kapor Name</span></a>
 							</li>
 							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
-								<a href="{{route('lekraBrandName')}}"><i class="fe fe-home"></i> <span>Lekra Brand </span></a>
+								<a href="{{route('lekraBrandName')}}"><i class="fa fa-black-tie"></i> <span>Lekra Brand </span></a>
 							</li>
 							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-document"></i> <span>Knitting Send</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fa fa-scissors"></i> <span>Knitting Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_send')}}">Knitting Send</a></li>
 									<li><a href="{{route('KnittingSendShow')}}">Knitting Show</a></li>
 								</ul>
 							</li>
 							<li class="submenu {{ Route::CurrentRouteName() == 'making_knitting_recived' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'KnittingReceivedShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-document"></i> <span>Knitting Recived</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fa fa-scissors"></i> <span>Knitting Recived</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_recived')}}">Knitting Recived</a></li>
 									<li><a href="{{route('KnittingReceivedShow')}}">Knitting Show</a></li>
@@ -196,7 +198,7 @@
 							</li>
 
 							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingSend' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingSendShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fa fa-sheqel"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('dyeingSend')}}">Dyeing Send</a></li>
 									<li><a href="{{route('dyeingSendShow')}}">Dyeing Show</a></li>
@@ -204,17 +206,31 @@
 							</li>
 
 							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingReceived' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingReceivedShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-document"></i> <span>Dyeing Received</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fa fa-sheqel"></i> <span>Dyeing Received</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('dyeingReceived')}}">Dyeing Received</a></li>
 									<li><a href="{{route('dyeingReceivedShow')}}">Dyeing Show</a></li>
 								</ul>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingReceived' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingReceivedShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-document"></i> <span>Cutting Send</span> <span class="menu-arrow"></span></a>
+							<li class="submenu {{ Route::CurrentRouteName() == 'cuttingSend' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'cuttingSendShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-scissors"></i><span>Cutting Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('cuttingSend')}}">Cutting Send</a></li>
 									<li><a href="{{route('cuttingSendShow')}}">Cutting Show</a></li>
+								</ul>
+							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'cuttingReceived' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'cuttingReceivedShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-scissors"></i><span>Cutting Received</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('cuttingReceived')}}">Cutting Received</a></li>
+									<li><a href="{{route('cuttingReceivedShow')}}">Cutting Show</a></li>
+								</ul>
+							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'markatReceived' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'cuttingReceivedShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-sheqel"></i><span>Markat Received</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('markatReceived')}}">Markat Received</a></li>
+									<li><a href="{{route('cuttingReceivedShow')}}">Cutting Show</a></li>
 								</ul>
 							</li>
 

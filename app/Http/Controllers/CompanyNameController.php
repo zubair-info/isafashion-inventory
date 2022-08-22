@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CompanyNameController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     function index()
     {

@@ -145,7 +145,7 @@ class MarkatReceivedController extends Controller
         return redirect()->route('markatReceivedShow')->with($notification);
     }
 
-    function cuttingRecevedMultipleDelete($id)
+    function markatRecevedMultipleDelete($id)
     {
         MarkatMultipleReceived::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);

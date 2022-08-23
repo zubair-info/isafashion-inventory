@@ -14,6 +14,7 @@ use App\Http\Controllers\MakingDyeingSendController;
 use App\Http\Controllers\MakingKnittingReceivedController;
 use App\Http\Controllers\MakingKnittingSendController;
 use App\Http\Controllers\MarkatReceivedController;
+use App\Http\Controllers\MarkatSendController;
 use App\Http\Controllers\SutaController;
 
 
@@ -142,6 +143,7 @@ Route::get('cutting-received-generate-pdf-view/{cutting_received_id}', [CuttingR
 Route::get('cutting-received-generate-pdf-download/{cutting_received_id}', [CuttingReceivedController::class, 'cuttingReceivdPDFDownload'])->name('cuttingReceivdPDFDownload');
 
 
+// markat received
 Route::get('markat-received', [MarkatReceivedController::class, 'index'])->name('markatReceived');
 Route::post('markat-received', [MarkatReceivedController::class, 'store'])->name('markatReceivedStore');
 Route::get('markat-received-show', [MarkatReceivedController::class, 'show'])->name('markatReceivedShow');
@@ -151,9 +153,27 @@ Route::post('markat-received-update', [MarkatReceivedController::class, 'update'
 Route::get('markat-received-view/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedView'])->name('markatReceivedView');
 Route::get('markat-received-multiple-edit/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedMultipleEdit'])->name('markatReceivedMultipleEdit');
 Route::post('markat-received-multiple-update', [MarkatReceivedController::class, 'markatRecivedMultipleUpdate'])->name('markatRecivedMultipleUpdate');
-Route::get('/markatRecevedMultipleDelete/{id}', [MarkatReceivedController::class, 'cuttingRecevedMultipleDelete'])->name('markatRecevedMultipleDelete');
+Route::get('/markatRecevedMultipleDelete/{id}', [MarkatReceivedController::class, 'markatRecevedMultipleDelete'])->name('markatRecevedMultipleDelete');
 Route::get('markat-received-generate-pdf-view/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivedPDFView'])->name('markatReceivedPDFView');
 Route::get('markat-received-generate-pdf-download/{markat_received_id}', [MarkatReceivedController::class, 'markatReceivdPDFDownload'])->name('markatReceivdPDFDownload');
+
+
+
+//markat send
+Route::get('markat-send', [MarkatSendController::class, 'index'])->name('markatSend');
+Route::post('markat-send', [MarkatSendController::class, 'store'])->name('markatSendStore');
+Route::get('markat-send-show', [MarkatSendController::class, 'show'])->name('markatSendShow');
+Route::get('/marketSendDelete/{id}', [MarkatSendController::class, 'destroy'])->name('marketSendDelete');
+Route::get('markat-send-edit/{markat_send_id}', [MarkatSendController::class, 'edit'])->name('MarketSendEdit');
+Route::post('markat-send-update', [MarkatSendController::class, 'update'])->name('markatSendUpdate');
+Route::get('markat-send-view/{markat_send_id}', [MarkatSendController::class, 'markatSendView'])->name('markatSendView');
+Route::get('/markatSendMultipleDelete/{id}', [MarkatSendController::class, 'markatSendMultipleDelete'])->name('markatSendMultipleDelete');
+Route::get('markat-send-multiple-edit/{markat_send_id}', [MarkatSendController::class, 'markatSendMultipleEdit'])->name('markatSendMultipleEdit');
+Route::post('markat-send-multiple-update', [MarkatSendController::class, 'markatSendMultipleUpdate'])->name('markatSendMultipleUpdate');
+Route::get('markat-send-generate-pdf-view/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFView'])->name('markatSendPDFView');
+Route::get('markat-send-generate-pdf-download/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFDownload'])->name('markatSendPDFDownload');
+
+
 
 
 

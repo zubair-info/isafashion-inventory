@@ -63,12 +63,12 @@
 					<i class="fe fe-text-align-left"></i>
 				</a>
 				
-				<div class="top-nav-search">
+				{{-- <div class="top-nav-search">
 					<form>
 						<input type="text" class="form-control" placeholder="Search here">
 						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
 					</form>
-				</div>
+				</div> --}}
 				
 				<!-- Mobile Menu Toggle -->
 				<a class="mobile_btn" id="mobile_btn">
@@ -80,7 +80,7 @@
 				<ul class="nav user-menu">
 
 					<!-- Notifications -->
-					<li class="nav-item dropdown noti-dropdown">
+					{{-- <li class="nav-item dropdown noti-dropdown">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 							<i class="fe fe-bell"></i> <span class="badge badge-pill">1</span>
 						</a>
@@ -111,7 +111,7 @@
 								<a href="#">View all Notifications</a>
 							</div>
 						</div>
-					</li>
+					</li> --}}
 					<!-- /Notifications -->
 					
 					<!-- User Menu -->
@@ -233,6 +233,13 @@
 								<ul style="display: none;">
 									<li><a href="{{route('markatReceived')}}">Received</a></li>
 									<li><a href="{{route('markatReceivedShow')}}">Show</a></li>
+								</ul>
+							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'markatSend' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'markatSendShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-codepen"></i><span>Markat Send</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('markatSend')}}">Markat Send</a></li>
+									<li><a href="{{route('markatSendShow')}}">Markat Show</a></li>
 								</ul>
 							</li>
 

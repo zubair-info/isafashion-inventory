@@ -7,6 +7,7 @@ use App\Http\Controllers\CuttingSendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
+use App\Http\Controllers\KnittingReceivedLekraBrandController;
 use App\Http\Controllers\KnittingReceivedSutaBrandController;
 use App\Http\Controllers\LekraBrandController;
 use App\Http\Controllers\MakingDyeingReceived;
@@ -90,7 +91,7 @@ Route::get('/lekraBrandDelete/{id}', [LekraBrandController::class, 'destroy'])->
 
 
 
-// Suta Brand
+//knitting received Suta Brand
 Route::get('knitting-suta-brand-received', [KnittingReceivedSutaBrandController::class, 'index'])->name('knittingreceivedSutaBrand');
 Route::post('knitting-suta-brand-store', [KnittingReceivedSutaBrandController::class, 'store'])->name('KnittingReceivedSutaStore');
 Route::get('knitting-received-suta-brand-show', [KnittingReceivedSutaBrandController::class, 'show'])->name('KnittingSutaBrandShow');
@@ -98,6 +99,10 @@ Route::get('knitting-received-suta-brand-edit/{knitting_received_sutabrand_id}',
 Route::post('knitting-received-suta-brand-update', [KnittingReceivedSutaBrandController::class, 'update'])->name('KnittingReceivedSutaUpdate');
 Route::get('/knittingReceivedSutaBrandDelete/{id}', [KnittingReceivedSutaBrandController::class, 'destroy'])->name('knittingReceivedSutaBrandDelete');
 
+
+//knitting received lekra Brand
+Route::get('knitting-lekra-brand-received', [KnittingReceivedLekraBrandController::class, 'index'])->name('knittingreceivedLekraBrand');
+Route::post('knitting-lekra-brand-store', [KnittingReceivedLekraBrandController::class, 'store'])->name('KnittingReceivedLekraBrandStore');
 
 // MakingKnittingSend
 Route::get('making-knitting-send', [MakingKnittingSendController::class, 'index'])->name('making_knitting_send');

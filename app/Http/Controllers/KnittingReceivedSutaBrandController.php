@@ -21,7 +21,7 @@ class KnittingReceivedSutaBrandController extends Controller
         $all_suta_name = Suta::get();
         $all_kapor_name = Kapor::get();
 
-        return view('admin.knitting.received.index', [
+        return view('admin.knitting-received.suta-brand.index', [
             'all_company_name' => $all_company_name,
             'all_brand_name' => $all_brand_name,
             'all_suta_name' => $all_suta_name,
@@ -55,7 +55,7 @@ class KnittingReceivedSutaBrandController extends Controller
     function show()
     {
         $all_knitting_received_suta = KnittingReceivedSutaBrand::get();
-        return view('admin.knitting.received.show', compact('all_knitting_received_suta'));
+        return view('admin.knitting-received.suta-brand.show', compact('all_knitting_received_suta'));
     }
 
     function edit($knitting_received_sutabrand_id)
@@ -65,7 +65,7 @@ class KnittingReceivedSutaBrandController extends Controller
         $all_suta_name = Suta::get();
         $all_kapor_name = Kapor::get();
         $knitting_received_sutabrand_id = KnittingReceivedSutaBrand::find($knitting_received_sutabrand_id);
-        return view('admin.knitting.received.edit', [
+        return view('admin.knitting-received.suta-brand.edit', [
             'all_company_name' => $all_company_name,
             'all_brand_name' => $all_brand_name,
             'all_suta_name' => $all_suta_name,

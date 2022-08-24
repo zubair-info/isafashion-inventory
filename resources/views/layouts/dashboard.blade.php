@@ -187,6 +187,13 @@
 									<li><a href="{{route('KnittingSutaBrandShow')}}">Suta Show</a></li>
 								</ul>
 							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedLekraBrand' ? 'active' : '' }}">
+								<a href="#"><i class="fe fe-star-o"></i><span>Received Lekra</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('knittingreceivedLekraBrand')}}">Lekra Received</a></li>
+									<li><a href="{{route('KnittingSutaBrandShow')}}">Lekra Show</a></li>
+								</ul>
+							</li>
 							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
 								<a href="#"><i class="fe fe-star-o"></i><span>Making Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">

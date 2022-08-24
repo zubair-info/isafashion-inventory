@@ -17,6 +17,7 @@ use App\Http\Controllers\MakingKnittingSendController;
 use App\Http\Controllers\MarkatReceivedController;
 use App\Http\Controllers\MarkatSendController;
 use App\Http\Controllers\SutaController;
+use Illuminate\Support\Facades\Artisan;
 
 
 /*
@@ -222,3 +223,12 @@ Route::get('markat-send-multiple-edit/{markat_send_id}', [MarkatSendController::
 Route::post('markat-send-multiple-update', [MarkatSendController::class, 'markatSendMultipleUpdate'])->name('markatSendMultipleUpdate');
 Route::get('markat-send-generate-pdf-view/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFView'])->name('markatSendPDFView');
 Route::get('markat-send-generate-pdf-download/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFDownload'])->name('markatSendPDFDownload');
+
+
+
+
+Route::get('/clear', function () {
+    $output = new \Symfony\Component\Console\Output\BufferedOutput();
+    Artisan::call('optimize:clear', array(), $output);
+    return $output->fetch();
+})->name('/clear');

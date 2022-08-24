@@ -180,21 +180,21 @@
 							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
 								<a href="{{route('lekraBrandName')}}"><i class="fa fa-black-tie"></i> <span>Lekra Brand </span></a>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-star-o"></i><span>Received Suta</span> <span class="menu-arrow"></span></a>
+							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-usd"></i><span>Received Suta</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('knittingreceivedSutaBrand')}}">Suta Received</a></li>
 									<li><a href="{{route('KnittingSutaBrandShow')}}">Suta Show</a></li>
 								</ul>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedLekraBrand' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-star-o"></i><span>Received Lekra</span> <span class="menu-arrow"></span></a>
+							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedLekraBrand' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'KnittingReceivedLekraBrandShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-black-tie"></i><span>Received Lekra</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('knittingreceivedLekraBrand')}}">Lekra Received</a></li>
-									<li><a href="{{route('KnittingSutaBrandShow')}}">Lekra Show</a></li>
+									<li><a href="{{route('KnittingReceivedLekraBrandShow')}}">Lekra Show</a></li>
 								</ul>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
+							<li class="submenu {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ">
 								<a href="#"><i class="fe fe-star-o"></i><span>Making Send</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('making_knitting_send')}}">Making Send</a></li>

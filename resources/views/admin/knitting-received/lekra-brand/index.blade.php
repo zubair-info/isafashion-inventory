@@ -64,7 +64,7 @@
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Lekra Cartoon</label>
                                 <div class="col-lg-9">
-                                    <input type="number" step="0.0000001" class="form-control lekra_cartoon" name="lekra_cartoon"  placeholder="Enter Lekra Cartoon : 10" >
+                                    <input type="number" step="any" class="form-control lekra_cartoon" name="lekra_cartoon"  placeholder="Enter Lekra Cartoon : 10" >
                                     <span style="color:red"  class="lekra_cartoon_error" id="lekra_cartoon_error" ></span>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 <label class="col-lg-3 col-form-label">Lekra Rate</label>
                             
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control lekra_rate" name="lekra_rate"  placeholder="Enter Lekra Rate : 27.36">
+                                    <input type="number" step="any"  class="form-control lekra_rate" name="lekra_rate"  placeholder="Enter Lekra Rate : 27.36">
                                     <span style="color:red"  class="lekra_rate_error" id="lekra_rate_error" ></span>
                                 </div>
                             </div>

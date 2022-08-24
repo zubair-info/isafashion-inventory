@@ -98,11 +98,24 @@ Route::get('knitting-received-suta-brand-show', [KnittingReceivedSutaBrandContro
 Route::get('knitting-received-suta-brand-edit/{knitting_received_sutabrand_id}', [KnittingReceivedSutaBrandController::class, 'edit'])->name('knittingReceivedSutaBrandEdit');
 Route::post('knitting-received-suta-brand-update', [KnittingReceivedSutaBrandController::class, 'update'])->name('KnittingReceivedSutaUpdate');
 Route::get('/knittingReceivedSutaBrandDelete/{id}', [KnittingReceivedSutaBrandController::class, 'destroy'])->name('knittingReceivedSutaBrandDelete');
+// Route::get('knitting-received-lekra-brand-pdf-view/{knitting_received_lekrabrand_id}', [KnittingReceivedLekraBrandController::class, 'KnittingReceivedLekraBrandPDFview'])->name('KnittingReceivedLekraBrandPDFview');
+
+
+
 
 
 //knitting received lekra Brand
-Route::get('knitting-lekra-brand-received', [KnittingReceivedLekraBrandController::class, 'index'])->name('knittingreceivedLekraBrand');
-Route::post('knitting-lekra-brand-store', [KnittingReceivedLekraBrandController::class, 'store'])->name('KnittingReceivedLekraBrandStore');
+Route::get('knitting-received-lekra-brand-received', [KnittingReceivedLekraBrandController::class, 'index'])->name('knittingreceivedLekraBrand');
+Route::post('knitting-received-lekra-brand-store', [KnittingReceivedLekraBrandController::class, 'store'])->name('KnittingReceivedLekraBrandStore');
+Route::get('knitting-received-lekra-brand-show', [KnittingReceivedLekraBrandController::class, 'show'])->name('KnittingReceivedLekraBrandShow');
+Route::get('knitting-received-lekra-brand-edit/{knitting_received_lekrabrand_id}', [KnittingReceivedLekraBrandController::class, 'edit'])->name('knittingReceivedSutaBrandEdit');
+Route::post('knitting-received-lekra-brand-update', [KnittingReceivedLekraBrandController::class, 'update'])->name('KnittingReceivedLekraBrandUpdate');
+Route::get('knitting-received-lekra-brand-pdf-view/{knitting_received_lekrabrand_id}', [KnittingReceivedLekraBrandController::class, 'KnittingReceivedLekraBrandPDFview'])->name('KnittingReceivedLekraBrandPDFview');
+Route::get('knitting-received-lekra-brand-pdf-down/{knitting_received_lekrabrand_id}', [KnittingReceivedLekraBrandController::class, 'KnittingReceivedLekraBrandPDFdown'])->name('KnittingReceivedLekraBrandPDFdown');
+Route::get('/knittingReceivedLekraBrandDelete/{id}', [KnittingReceivedLekraBrandController::class, 'destroy'])->name('knittingReceivedLekraBrandDelete');
+
+
+
 
 // MakingKnittingSend
 Route::get('making-knitting-send', [MakingKnittingSendController::class, 'index'])->name('making_knitting_send');
@@ -120,7 +133,6 @@ Route::POST('making-knitting-send-suta-brand-update', [MakingKnittingSendControl
 Route::get('/knittingSendSutaBrandDelete/{id}', [MakingKnittingSendController::class, 'sutaBrandDelete'])->name('SutaBrandDelete');
 Route::get('making-knitting-send-lekra-brand-edit/{all_lekra_brand_id}', [MakingKnittingSendController::class, 'lekraBrandEdit'])->name('lekraBrandEdit');
 Route::POST('making-knitting-send-lekra-brand-update', [MakingKnittingSendController::class, 'sendLekraBrandUpdate'])->name('sendlekraBrandUpdate');
-Route::get('/knittingSendLekraBrandDelete/{id}', [MakingKnittingSendController::class, 'lekraBrandDelete'])->name('SutaBrandDelete');
 
 
 // MakingKnittingReceived

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class KnittingReceivedLekraBrand extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    function rel_to_lekra_brand()
+    {
+        return $this->belongsTo(LekraBrand::class, 'lekra_brand_id');
+    }
+    function rel_to_company()
+    {
+        return $this->belongsTo(CompanyName::class, 'company_id');
+    }
 }

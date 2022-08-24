@@ -180,7 +180,7 @@
 							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
 								<a href="{{route('lekraBrandName')}}"><i class="fa fa-black-tie"></i> <span>Lekra Brand </span></a>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }}">
+							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'KnittingSutaBrandShow' ? 'active' : '' }}">
 								<a href="#"><i class="fa fa-usd"></i><span>Received Suta</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="{{route('knittingreceivedSutaBrand')}}">Suta Received</a></li>

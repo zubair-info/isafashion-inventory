@@ -60,7 +60,7 @@
                                          <a target="_blank"  class="btn btn-sm bg-warning-light" href="{{route('KnittingReceivedSutaBrandPDFview',$knitting_received_suta->id)}}">
                                             <i class="fe fe-eye"></i> Invoice
                                         </a>
-                                        <a target="_blank"  class="btn btn-sm bg-warning-light" href="{{route('KnittingReceivedLekraBrandPDFdown',$knitting_received_suta->id)}}">
+                                        <a target="_blank"  class="btn btn-sm bg-warning-light" href="{{route('KnittingReceivedSutaBrandPDFdown',$knitting_received_suta->id)}}">
                                             <i class="fa fa-download" aria-hidden="true"></i> Download
                                             </a>
                                         <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$knitting_received_suta->id}}">

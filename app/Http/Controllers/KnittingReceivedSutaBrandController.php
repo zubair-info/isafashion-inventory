@@ -10,6 +10,7 @@ use App\Models\KnittingReceivedSutaBrand;
 use App\Models\KnittingSendSutaBrand;
 use App\Models\Suta;
 use Illuminate\Support\Carbon;
+use PDF;
 
 class KnittingReceivedSutaBrandController extends Controller
 {
@@ -98,5 +99,26 @@ class KnittingReceivedSutaBrandController extends Controller
     {
         KnittingReceivedSutaBrand::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function KnittingReceivedSutaBrandPDFview($knitting_received_sutabrand_id)
+    {
+        $pdf = PDF::loadView('admin.knitting-received.suta-brand.invoice', [
+            'knitting_received_sutabrand_id' => $knitting_received_sutabrand_id
+        ]);
+
+        return view('admin.knitting-received.suta-brand.invoice', [
+
+            'knitting_received_sutabrand_id' => $knitting_received_sutabrand_id,
+
+        ]);
+    }
+
+    function KnittingReceivedSutaBrandPDFdown($knitting_received_sutabrand_id)
+    {
+        $pdf = PDF::loadView('admin.knitting-received.suta-brand.invoice', [
+            'knitting_received_sutabrand_id' => $knitting_received_sutabrand_id
+        ]);
+        return $pdf->download('receivedSuta_' . $knitting_received_sutabrand_id . '.pdf');
     }
 }

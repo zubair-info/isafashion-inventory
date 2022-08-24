@@ -98,7 +98,8 @@ Route::get('knitting-received-suta-brand-show', [KnittingReceivedSutaBrandContro
 Route::get('knitting-received-suta-brand-edit/{knitting_received_sutabrand_id}', [KnittingReceivedSutaBrandController::class, 'edit'])->name('knittingReceivedSutaBrandEdit');
 Route::post('knitting-received-suta-brand-update', [KnittingReceivedSutaBrandController::class, 'update'])->name('KnittingReceivedSutaUpdate');
 Route::get('/knittingReceivedSutaBrandDelete/{id}', [KnittingReceivedSutaBrandController::class, 'destroy'])->name('knittingReceivedSutaBrandDelete');
-// Route::get('knitting-received-lekra-brand-pdf-view/{knitting_received_lekrabrand_id}', [KnittingReceivedLekraBrandController::class, 'KnittingReceivedLekraBrandPDFview'])->name('KnittingReceivedLekraBrandPDFview');
+Route::get('knitting-received-suta-brand-pdf-view/{knitting_received_sutabrand_id}', [KnittingReceivedSutaBrandController::class, 'KnittingReceivedSutaBrandPDFview'])->name('KnittingReceivedSutaBrandPDFview');
+Route::get('knitting-received-suta-brand-pdf-down/{knitting_received_sutabrand_id}', [KnittingReceivedSutaBrandController::class, 'KnittingReceivedSutaBrandPDFdown'])->name('KnittingReceivedSutaBrandPDFdown');
 
 
 

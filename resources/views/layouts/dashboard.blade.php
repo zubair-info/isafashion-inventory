@@ -157,15 +157,12 @@
 							<li class="menu-title"> 
 								<span>Admin</span>
 							</li>
-							<li class="{{ Route::CurrentRouteName() == 'home' ? 'active' : '' }}"> 
+							<li class="{{ (request()->is('home')) ? 'active' : '' }}"> 
 								<a href="{{route('home')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
 
                             <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
 								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> User</span></a>
-								{{-- <ul style="display: none;">
-									<li><a href="{{ route('user') }}"">User List</a></li>
-								</ul> --}}
 							</li>	
 							
 							<li class="{{ Route::CurrentRouteName() == 'companyName' ? 'active' : '' }}">
@@ -183,20 +180,28 @@
 							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
 								<a href="{{route('lekraBrandName')}}"><i class="fa fa-black-tie"></i> <span>Lekra Brand </span></a>
 							</li>
-							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-star-o"></i><span>Knitting Send</span> <span class="menu-arrow"></span></a>
+							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }}">
+								<a href="#"><i class="fe fe-star-o"></i><span>Received Suta</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="{{route('making_knitting_send')}}">Knitting Send</a></li>
-									<li><a href="{{route('KnittingSendShow')}}">Knitting Show</a></li>
+									<li><a href="{{route('knittingreceivedSutaBrand')}}">Suta Received</a></li>
+									<li><a href="{{route('KnittingSutaBrandShow')}}">Suta Show</a></li>
+								</ul>
+							</li>
+							<li class="submenu {{ Route::CurrentRouteName() == 'KnittingSendShow' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'making_knitting_send' ? 'active' : '' }}">
+								<a href="#"><i class="fe fe-star-o"></i><span>Making Send</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('making_knitting_send')}}">Making Send</a></li>
+									<li><a href="{{route('KnittingSendShow')}}">Making Show</a></li>
 								</ul>
 							</li>
 							<li class="submenu {{ Route::CurrentRouteName() == 'making_knitting_recived' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'KnittingReceivedShow' ? 'active' : '' }}">
-								<a href="#"><i class="fe fe-star-o"></i><span>Knitting Recived</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-star-o"></i><span>Making Recived</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="{{route('making_knitting_recived')}}">Knitting Recived</a></li>
-									<li><a href="{{route('KnittingReceivedShow')}}">Knitting Show</a></li>
+									<li><a href="{{route('making_knitting_recived')}}">Making Recived</a></li>
+									<li><a href="{{route('KnittingReceivedShow')}}">Making Show</a></li>
 								</ul>
 							</li>
+							
 
 							<li class="submenu {{ Route::CurrentRouteName() == 'dyeingSend' ? 'active' : '' }} ||{{ Route::CurrentRouteName() == 'dyeingSendShow' ? 'active' : '' }}">
 								<a href="#"><i class="fa fa-sheqel"></i> <span>Dyeing Send</span> <span class="menu-arrow"></span></a>

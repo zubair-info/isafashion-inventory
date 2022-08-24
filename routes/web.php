@@ -7,6 +7,7 @@ use App\Http\Controllers\CuttingSendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaporController;
+use App\Http\Controllers\KnittingReceivedSutaBrandController;
 use App\Http\Controllers\LekraBrandController;
 use App\Http\Controllers\MakingDyeingReceived;
 use App\Http\Controllers\MakingDyeingReceivedController;
@@ -47,6 +48,55 @@ Route::get('/profile/change', [HomeController::class, 'profileChange'])->name('p
 Route::post('/profile/name/update', [HomeController::class, 'nameChange']);
 Route::post('/profile/password/update', [HomeController::class, 'passwordUpdate']);
 Route::post('/profile/picture/update', [HomeController::class, 'picture_update']);
+
+
+
+
+// copmany name
+Route::get('company-name', [CompanyNameController::class, 'index'])->name('companyName');
+Route::post('company-name-store', [CompanyNameController::class, 'store'])->name('CompanyNameStore');
+Route::get('company-name-edit/{id}', [CompanyNameController::class, 'edit'])->name('CompanyNameEdit');
+Route::post('company-name-update', [CompanyNameController::class, 'update'])->name('companyUpdate');
+Route::get('/companyDelete/{id}', [CompanyNameController::class, 'destroy'])->name('companyDelete');
+
+
+
+//brand
+Route::get('brand-name', [BrandController::class, 'index'])->name('brandName');
+Route::post('brand-name-store', [BrandController::class, 'store'])->name('brandNameStore');
+Route::post('brand-name-update', [BrandController::class, 'update'])->name('brandUpdate');
+Route::get('/brandDelete/{id}', [BrandController::class, 'destroy'])->name('brandDelete');
+
+
+// suta
+Route::get('suta-name', [SutaController::class, 'index'])->name('sutaName');
+Route::post('suta-name-store', [SutaController::class, 'store'])->name('sutaNameStore');
+Route::post('suta-name-update', [SutaController::class, 'update'])->name('sutaUpdate');
+Route::get('/sutaDelete/{id}', [SutaController::class, 'destroy'])->name('sutaDelete');
+
+// kapor
+Route::get('kapor-name', [KaporController::class, 'index'])->name('kaporName');
+Route::post('kapor-name-store', [KaporController::class, 'store'])->name('kaporNameStore');
+Route::post('kapor-name-update', [KaporController::class, 'update'])->name('kaporUpdate');
+Route::get('/kaporDelete/{id}', [KaporController::class, 'destroy'])->name('kaporDelete');
+
+//lekra Brand Name
+Route::get('lekra-brand-name', [LekraBrandController::class, 'index'])->name('lekraBrandName');
+Route::post('lekra-brand-name-store', [LekraBrandController::class, 'store'])->name('lekraBrandNameStore');
+Route::post('lekra-brand-name-update', [LekraBrandController::class, 'update'])->name('lekraBrandUpdate');
+Route::get('/lekraBrandDelete/{id}', [LekraBrandController::class, 'destroy'])->name('lekraBrandDelete');
+
+
+
+
+// Suta Brand
+Route::get('knitting-suta-brand-received', [KnittingReceivedSutaBrandController::class, 'index'])->name('knittingreceivedSutaBrand');
+Route::post('knitting-suta-brand-store', [KnittingReceivedSutaBrandController::class, 'store'])->name('KnittingReceivedSutaStore');
+Route::get('knitting-received-suta-brand-show', [KnittingReceivedSutaBrandController::class, 'show'])->name('KnittingSutaBrandShow');
+Route::get('knitting-received-suta-brand-edit/{knitting_received_sutabrand_id}', [KnittingReceivedSutaBrandController::class, 'edit'])->name('knittingReceivedSutaBrandEdit');
+Route::post('knitting-received-suta-brand-update', [KnittingReceivedSutaBrandController::class, 'update'])->name('KnittingReceivedSutaUpdate');
+Route::get('/knittingReceivedSutaBrandDelete/{id}', [KnittingReceivedSutaBrandController::class, 'destroy'])->name('knittingReceivedSutaBrandDelete');
+
 
 // MakingKnittingSend
 Route::get('making-knitting-send', [MakingKnittingSendController::class, 'index'])->name('making_knitting_send');
@@ -172,41 +222,3 @@ Route::get('markat-send-multiple-edit/{markat_send_id}', [MarkatSendController::
 Route::post('markat-send-multiple-update', [MarkatSendController::class, 'markatSendMultipleUpdate'])->name('markatSendMultipleUpdate');
 Route::get('markat-send-generate-pdf-view/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFView'])->name('markatSendPDFView');
 Route::get('markat-send-generate-pdf-download/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFDownload'])->name('markatSendPDFDownload');
-
-
-
-
-
-// copmany name
-Route::get('company-name', [CompanyNameController::class, 'index'])->name('companyName');
-Route::post('company-name-store', [CompanyNameController::class, 'store'])->name('CompanyNameStore');
-Route::get('company-name-edit/{id}', [CompanyNameController::class, 'edit'])->name('CompanyNameEdit');
-Route::post('company-name-update', [CompanyNameController::class, 'update'])->name('companyUpdate');
-Route::get('/companyDelete/{id}', [CompanyNameController::class, 'destroy'])->name('companyDelete');
-
-
-
-//brand
-Route::get('brand-name', [BrandController::class, 'index'])->name('brandName');
-Route::post('brand-name-store', [BrandController::class, 'store'])->name('brandNameStore');
-Route::post('brand-name-update', [BrandController::class, 'update'])->name('brandUpdate');
-Route::get('/brandDelete/{id}', [BrandController::class, 'destroy'])->name('brandDelete');
-
-
-// suta
-Route::get('suta-name', [SutaController::class, 'index'])->name('sutaName');
-Route::post('suta-name-store', [SutaController::class, 'store'])->name('sutaNameStore');
-Route::post('suta-name-update', [SutaController::class, 'update'])->name('sutaUpdate');
-Route::get('/sutaDelete/{id}', [SutaController::class, 'destroy'])->name('sutaDelete');
-
-// kapor
-Route::get('kapor-name', [KaporController::class, 'index'])->name('kaporName');
-Route::post('kapor-name-store', [KaporController::class, 'store'])->name('kaporNameStore');
-Route::post('kapor-name-update', [KaporController::class, 'update'])->name('kaporUpdate');
-Route::get('/kaporDelete/{id}', [KaporController::class, 'destroy'])->name('kaporDelete');
-
-//lekra Brand Name
-Route::get('lekra-brand-name', [LekraBrandController::class, 'index'])->name('lekraBrandName');
-Route::post('lekra-brand-name-store', [LekraBrandController::class, 'store'])->name('lekraBrandNameStore');
-Route::post('lekra-brand-name-update', [LekraBrandController::class, 'update'])->name('lekraBrandUpdate');
-Route::get('/lekraBrandDelete/{id}', [LekraBrandController::class, 'destroy'])->name('lekraBrandDelete');

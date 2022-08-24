@@ -51,6 +51,7 @@ class HomeController extends Controller
 
     public function userChangeStatus(Request $request)
     {
+        // echo $request->status;
         $user = User::find($request->user_id);
         $user->status = $request->status;
         $user->save();

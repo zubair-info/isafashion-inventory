@@ -33,7 +33,6 @@
                                         <th>SL</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Status</th>
                                         <th>id</th>
                                         <th>Create at</th>
                                         <th>Action</th>
@@ -47,13 +46,16 @@
                                             {{-- <td>{{ $all_users->firstitem() + $key }}</td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->status }}</td>
                                             <td>
-                                                <div class="status-toggle">
+                                                {{-- <div class="status-toggle">
                                                     
                                                     <input  data-id="{{$user->id}}" class="check status_check" type="checkbox" id="status_3" >
                                                     <label for="status_3" class="checktoggle">checkbox</label>
 
+                                                </div> --}}
+                                                <div class="status-toggle">
+                                                    <input data-id="{{$user->id}}"  type="checkbox" id="status_{{$user->id}}" class="check checks" >
+                                                    <label for="status_{{$user->id}}" class="checktoggle">checkbox</label>
                                                 </div>
     
                                             </td>
@@ -112,17 +114,18 @@
 @section('footer_script')
 <script>
     $(function() {
-      $('.status_check').change(function() {
-          var status = $(this).prop('checked') == true ? 1 : 0; 
+
+      $('.checks').change(function() {
+          var status = $(this).prop('checked') == true ? 1 : 0;  
           var user_id = $(this).attr('data-id'); 
-          alert(user_id);
+        //   alert(user_id);
           $.ajax({
               type: "GET",
               dataType: "json",
               url: '/changeStatus',
               data: {'status': status, 'user_id': user_id},
               success: function(data){
-                console.log(data.success)
+                console.log(data)
               }
           });
       });

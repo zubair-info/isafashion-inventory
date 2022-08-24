@@ -82,6 +82,21 @@
                                 
                                 <div class="form_create" id="form_create_1" form_count="1">
                                     <input type="hidden" name="form_count[]" value="1" class="form-control"> 
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                                        <div class="col-lg-9">
+                                            
+                                            <select class="form-control select2_search  knitting_received_suta_chalan_id" id="knitting_received_suta_chalan_id"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
+                                                <option value="">--Select Option--</option>  
+                                                @foreach ($all_knitting_received_suta_chalan_id as $knitting_received_suta_chalan_id)    
+                                                    <option value="{{$knitting_received_suta_chalan_id->send_chalan_id}}">{{$knitting_received_suta_chalan_id->send_chalan_id}}</option>  
+                                                @endforeach
+                                            </select>
+                                            <span style="color:red" class="knitting_received_suta_chalan_id_error"  id="knitting_received_suta_chalan_id_error" ></span>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Name of Suta</label>
                                         <div class="col-lg-9">
@@ -125,7 +140,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Weight</label>
                                         <div class="col-lg-9">
-                                            <input type="number" step="0.0000001" class="form-control weight" id="weight" name="weight[]" placeholder="Enter Weight : 50">
+                                            <input type="number" step="any" class="form-control weight" id="weight_1" name="weight[]" placeholder="Enter Weight : 50">
                                             <span style="color:red"  id="weight_error" class="weight_error" ></span> 
                                         </div>
 
@@ -133,7 +148,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Cartoon</label>
                                         <div class="col-lg-9">
-                                            <input type="number" step="0.0000001" class="form-control cartoon" id="cartoon" name="cartoon[]" placeholder="Enter Carton : 20">
+                                            <input type="number" step="any" class="form-control cartoon" id="cartoon" name="cartoon[]" placeholder="Enter Carton : 20">
                                             <span style="color:red"  id="cartoon_error" class="cartoon_error"></span> 
                                         </div>
                                     
@@ -141,13 +156,15 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Rate</label>
                                         <div class="col-lg-9">
-                                            <input type="number" step="0.0000001" class="form-control rate" id="rate" name="rate[]" placeholder="Enter Rate : 148" >
+                                            <input type="number" step="any" class="form-control rate" id="rate" name="rate[]" placeholder="Enter Rate : 148" >
                                             <span style="color:red"  id="rate_error" class="rate_error" ></span> 
                                         </div>
                                     </div>                        
                                 </div>
                                 
-                                <div id="new_brand_form"></div>
+                                <div id="new_brand_form">
+                                    
+                                </div>
 
                                 <button type="button" style="float: right;margin-bottom:8px;" id="form_create_btn"  onclick="add()" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
                                
@@ -164,7 +181,19 @@
 
                             <div class="form_step_three" id="form_step_three" style="display: none">
                                 <input type="hidden" name="lekra_brand_form_count[]" value="1" class="form-control"> 
-                                <div class="form_create" id="form_create_1" lekra_brand_form_count="1">   
+                                <div class="form_create" id="form_create_1" lekra_brand_form_count="1"> 
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                                        <div class="col-lg-9">                                          
+                                            <select class="form-control select2_search  knitting_received_lekra_chalan_id" id="knitting_received_lekra_chalan_id"  name="knitting_received_lekra_chalan_id[]" style="width: 100%;">  
+                                                <option value="">--Select Option--</option>  
+                                                @foreach ($all_knitting_received_lekra_chalan_id as $knitting_received_lekra_chalan_id)    
+                                                    <option value="{{$knitting_received_lekra_chalan_id->send_chalan_id}}">{{$knitting_received_lekra_chalan_id->send_chalan_id}}</option>  
+                                                @endforeach
+                                            </select>
+                                            <span style="color:red" class="knitting_received_lekra_chalan_id_error"  id="knitting_received_lekra_chalan_id_error" ></span>
+                                        </div>
+                                    </div>  
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Lekra Brand</label>
                                         <div class="col-lg-9">
@@ -180,7 +209,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Lekra Cartoon</label>
                                         <div class="col-lg-9">
-                                            <input type="number" step="0.0000001" class="form-control lekra_cartoon" name="lekra_cartoon[]"  placeholder="Enter Lekra Cartoon : 10" >
+                                            <input type="number" step="any"class="form-control lekra_cartoon" name="lekra_cartoon[]"  placeholder="Enter Lekra Cartoon : 10" >
                                             <span style="color:red"  class="lekra_cartoon_error" id="lekra_cartoon_error" ></span>
                                         </div>
                                     </div>
@@ -188,7 +217,7 @@
                                         <label class="col-lg-3 col-form-label">Lekra Rate</label>
                                     
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control lekra_rate" name="lekra_rate[]"  placeholder="Enter Lekra Rate : 27.36">
+                                            <input type="number" step="any" class="form-control lekra_rate" name="lekra_rate[]"  placeholder="Enter Lekra Rate : 27.36">
                                             <span style="color:red"  class="lekra_rate_error" id="lekra_rate_error" ></span>
                                         </div>
                                     </div>
@@ -222,10 +251,12 @@
 @section('footer_script')
 
  <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
       
         $( "#step_one").click(function() {
             var send_chalan_id = $('#send_chalan_id').val();
+            var knitting_received_suta_chalan_id = $('#knitting_received_suta_chalan_id').val();
+
             var date = $('#date').val();
             var company_id = $('#company_id').val();
             if(send_chalan_id==''){
@@ -266,49 +297,12 @@
 
         });
         $( "#step_two").click(function() {
-
-            var suta_id = $('.suta_id').val();
-            // alert('ok');
-            var brand_id = $('.brand_id').val();
-            var company_id = $('.company_id').val();
-            var kapor_id = $('.kapor_id').val();
-            var weight = $('.weight').val();
-            var cartoon = $('.cartoon').val();
-            var rate = $('.rate').val();
-            if(suta_id==''){
-                // alert('ok');
-                $(".suta_id_error").text('Please enter your suta Id');
-                $(".suta_id").css('border','1px solid red');
-                $(".suta_id").focus();
-
-            }
-            else if(brand_id==''){
-                $(".brand_id_error").text('Please enter your brand Id');
-                $(".brand_id").css('border','1px solid red');
-                $(".brand_id").focus();
-
-            }else if(kapor_id==''){
-                $(".kapor_id_error").text('Please enter your kapor Id');
-                $(".kapor_id").css('border','1px solid red');
-                $(".kapor_id").focus();
-
-            }else if(weight==''){
-                $("#weight_error").text('Please enter your weight Id');
-                $("#weight").css('border','1px solid red');
-                $("#weight").focus();
-
-            }else if(cartoon==''){
-                $("#cartoon_error").text('Please enter your cartoon Id');
-                $("#cartoon").css('border','1px solid red');
-                $("#cartoon").focus();
-
-            }else if(rate==''){
-                $("#rate_error").text('Please enter your rate Id');
-                $("#rate").css('border','1px solid red');
-                $("#rate").focus();
-
-            }
-            else{
+         
+            if(steptwocheck()) {
+               
+                $("#knitting_received_suta_chalan_id_error").text('');
+                $("#knitting_received_suta_chalan_id").css('border','1px solid green');
+                $("#knitting_received_suta_chalan_id").focus();
                 $(".suta_id_error").text('');
                 $(".suta_id").css('border','1px solid green');
                 $(".suta_id").focus();
@@ -327,23 +321,76 @@
                 $("#rate_error").text('');
                 $("#rate").css('border','1px solid green');
                 $("#rate").focus();
-
                 $('#form_step_one').hide();
                 $('#form_step_two').hide();
                 $('#form_step_three').show();
                 $('#step_3').addClass('active');
             }
-
         });
-
+       
+        function steptwocheck(){
+            for(var i=1;  i < count; i++){                
+                var suta_id = $('#form_create_'+i+' .suta_id').val();
+                var brand_id = $('#form_create_'+i+' .brand_id').val();
+                var company_id = $('#form_create_'+i+' .company_id').val();
+                var kapor_id = $('#form_create_'+i+' .kapor_id').val();
+                var weight = $('#form_create_'+i+' .weight').val();
+                var cartoon = $('#form_create_'+i+' .cartoon').val();
+                var rate = $('#form_create_'+i+' .rate').val();
+                var knitting_received_suta_chalan_id = $('#form_create_'+i+' #knitting_received_suta_chalan_id').val();
+                if(knitting_received_suta_chalan_id==''){
+                    $('#form_create_'+i+' #knitting_received_suta_chalan_id_error').text('Please enter your Suta Send Chalan Id');
+                    $('#form_create_'+i+' #knitting_received_suta_chalan_id').css('border','1px solid red');
+                    $('#form_create_'+i+' #knitting_received_suta_chalan_id').focus();
+                    return 0;
+                }else if(suta_id==''){
+                    $('#form_create_'+i+' .suta_id_error').text('Please enter your suta Id');
+                    $('#form_create_'+i+' .suta_id').css('border','1px solid red');
+                    $('#form_create_'+i+' .suta_id').focus();
+                    return 0;
+                }else if(brand_id==''){
+                    $('#form_create_'+i+' .brand_id_error').text('Please enter your brand Id');
+                    $('#form_create_'+i+' .brand_id').css('border','1px solid red');
+                    $('#form_create_'+i+' .brand_id').focus();
+                    return 0;
+                }else if(kapor_id==''){
+                    $('#form_create_'+i+' .kapor_id_error').text('Please enter your kapor Id');
+                    $('#form_create_'+i+' .kapor_id').css('border','1px solid red');
+                    $('#form_create_'+i+' .kapor_id').focus();
+                    return 0;
+                }else if(weight==''){
+                    $('#form_create_'+i+' #weight_error').text('Please enter your weight Id');
+                    $('#form_create_'+i+' #weight').css('border','1px solid red');
+                    $('#form_create_'+i+' #weight').focus();
+                    return 0;
+                }else if(cartoon==''){
+                    $('#form_create_'+i+' #cartoon_error').text('Please enter your cartoon Id');
+                    $('#form_create_'+i+' #cartoon').css('border','1px solid red');
+                    $('#form_create_'+i+' #cartoon').focus();
+                    return 0;
+                }else if(rate==''){
+                    $('#form_create_'+i+' #rate_error').text('Please enter your rate Id');
+                    $('#form_create_'+i+' #rate').css('border','1px solid red');
+                    $('#form_create_'+i+' #rate').focus();
+                    return 0;
+                }               
+            }
+            return 1; 
+        }
         $( "#step_three").click(function() {
-
+            var knitting_received_lekra_chalan_id = $('.knitting_received_lekra_chalan_id').val();
             var lekra_brand = $('.lekra_brand').val();
-            // alert('ok');
             var lekra_cartoon = $('.lekra_cartoon').val();
             var lekra_rate = $('.lekra_rate').val();
 
-            if(lekra_brand==''){
+            
+            if(knitting_received_lekra_chalan_id==''){
+                $("#knitting_received_lekra_chalan_id_error").text('Please enter your Lekra Send Chalan Id');
+                $("#knitting_received_lekra_chalan_id").css('border','1px solid red');
+                $("#knitting_received_lekra_chalan_id").focus();
+
+
+            }else if(lekra_brand==''){
                 // alert('ok');
                 $(".lekra_brand_error").text('Please enter your lekra brand Id');
                 $(".lekra_brand").css('border','1px solid red');
@@ -362,6 +409,9 @@
 
             }
             else{
+                $("#knitting_received_lekra_chalan_id_error").text('');
+                $("#knitting_received_lekra_chalan_id").css('border','1px solid green');
+                $("#knitting_received_lekra_chalan_id").focus();
                 $(".lekra_brand_error").text('');
                 $(".lekra_brand").css('border','1px solid green');
                 $(".lekra_brand").focus();
@@ -395,94 +445,115 @@
             // $('#step_2').removeClass('active');
             // $('#step_2').addClass('');
         });
-    
-    
     });
     // `+count+`
     var count = 2;
-    function add(){
-        $('#new_brand_form').append(`<div class="form_create" id="form_create_`+count+`" form_count="`+count+`">
-            
-
+    function add(){        
+        $('#new_brand_form').append(`<div class="form_create" id="form_create_`+count+`" form_count="`+count+`">         
             <input type="hidden" name="form_count[]" value=" `+count+`" class="form-control"> 
             <button type="button" class="btn btn-danger" onclick="form_remove(`+count+`)"><i class="fa fa-minus"></i> Remove</button>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Name of Suta</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control suta_id"  name="suta_id[]" required>  
-                                                    <option  value="">--Select Option--</option>  
-                                                    @foreach ($all_suta_name as $suta)    
-                                                        <option value="{{$suta->id}}">{{$suta->suta_name}}</option>  
-                                                    @endforeach
-                                                </select>
-                                                <span style="color:red"  class="suta_id_error" id="suta_id_error" ></span> 
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Brand</label>
-                                            <div class="col-lg-9">
-                                            
-                                                <select class="form-control brand_id"  name="brand_id[]" >  
-                                                    <option  value="">--Select Option--</option>  
-                                                    @foreach ($all_brand_name as $brand)    
-                                                        <option value="{{$brand->id}}">{{$brand->brand_name}}</option>  
-                                                    @endforeach
-                                                </select>
-                                                <span style="color:red"  id="brand_id_error" class="brand_id_error" ></span> 
-                                            </div>
-                                            
-                                        </div>
-            
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Kapor</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control kapor"  name="kapor_id[]">  
-                                                    <option  value="">--Select Option--</option>  
-                                                    @foreach ($all_kapor_name as $kapor)    
-                                                        <option value="{{$kapor->id}}">{{$kapor->kapor_name}}</option>  
-                                                    @endforeach
-                                                </select>
-                                                <span style="color:red" class="kapor_id_error"  id="kapor_id_error" ></span> 
-                                            </div>
-                                        </div>  
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                    <div class="col-lg-9">
+                        <select class="form-control select2_search  knitting_received_suta_chalan_ids" id="knitting_received_suta_chalan_id"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
+                            <option value="">--Select Option--</option>  
+                            @foreach ($all_knitting_received_suta_chalan_id as $knitting_received_suta_chalan_id)    
+                                <option value="{{$knitting_received_suta_chalan_id->send_chalan_id}}">{{$knitting_received_suta_chalan_id->send_chalan_id}}</option>  
+                            @endforeach
+                        </select>                 
+                        
+                        <span style="color:red" class="knitting_received_suta_chalan_ids_error"  id="knitting_received_suta_chalan_ids_error" ></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Name of Suta</label>
+                    <div class="col-lg-9">
+                        <select class="form-control suta_id"  name="suta_id[]" required>  
+                            <option  value="">--Select Option--</option>  
+                            @foreach ($all_suta_name as $suta)    
+                                <option value="{{$suta->id}}">{{$suta->suta_name}}</option>  
+                            @endforeach
+                        </select>
+                        <span style="color:red"  class="suta_id_error" id="suta_id_error" ></span> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Brand</label>
+                    <div class="col-lg-9">
+                    
+                        <select class="form-control brand_id"  name="brand_id[]" >  
+                            <option  value="">--Select Option--</option>  
+                            @foreach ($all_brand_name as $brand)    
+                                <option value="{{$brand->id}}">{{$brand->brand_name}}</option>  
+                            @endforeach
+                        </select>
+                        <span style="color:red"  id="brand_id_error" class="brand_id_error" ></span> 
+                    </div>
+                    
+                </div>
 
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Weight</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" step="0.0000001" class="form-control weight" name="weight[]" placeholder="Enter Weight : 50">
-                                                <span style="color:red"  id="weight_error" class="weight_error" ></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Cartoon</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" step="0.0000001" class="form-control cartoon" name="cartoon[]" placeholder="Enter Carton : 20">
-                                                <span style="color:red"  id="cartoon_error" class="cartoon_error"></span> 
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Rate</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" step="0.0000001" class="form-control rate" name="rate[]" placeholder="Enter Rate : 148">
-                                                <span style="color:red"  id="rate_error" class="rate_error" ></span> 
-                                            </div>
-                                        </div>
-                                        
-                                    </div>`);
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Kapor</label>
+                    <div class="col-lg-9">
+                        <select class="form-control kapor"  name="kapor_id[]">  
+                            <option  value="">--Select Option--</option>  
+                            @foreach ($all_kapor_name as $kapor)    
+                                <option value="{{$kapor->id}}">{{$kapor->kapor_name}}</option>  
+                            @endforeach
+                        </select>
+                        <span style="color:red" class="kapor_id_error"  id="kapor_id_error" ></span> 
+                    </div>
+                </div>  
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Weight</label>
+                    <div class="col-lg-9">
+                        <input type="number"  step="any" class="form-control weight" name="weight[]" id='weight_`+count+`' placeholder="Enter Weight : 50">
+                        <span style="color:red"  id="weight_error" class="weight_error" ></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Cartoon</label>
+                    <div class="col-lg-9">
+                        <input type="number" step="any" class="form-control cartoon" name="cartoon[]" placeholder="Enter Carton : 20">
+                        <span style="color:red"  id="cartoon_error" class="cartoon_error"></span> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Rate</label>
+                    <div class="col-lg-9">
+                        <input type="number" step="any" class="form-control rate" name="rate[]" placeholder="Enter Rate : 148">
+                        <span style="color:red"  id="rate_error" class="rate_error" ></span> 
+                    </div>
+                </div>
+                
+        </div>`);
+
+        weightstockcheck(count);
         count++;
-
+        // weightstockcheck();
 
     }
     function form_remove(form_identity){
         $('#form_create_'+form_identity).remove();
-
     }
-
     var count = 2;
     function lekra_brand_add(){
         $('#new_lekra_brand_form').append(`<div class="form_create" id="form_create_`+count+`" lekra_brand_form_count="1">  
             <input type="hidden" name="lekra_brand_form_count[]" value=" `+count+`" class="form-control">  
             <button type="button" class="btn btn-danger" onclick="form_remove(`+count+`)"><i class="fa fa-minus"></i> Remove</button>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                    <div class="col-lg-9">                                          
+                        <select class="form-control select2_search  send_chalan_id_slekra_brand" id="knitting_received_suta_chalan_id"  name="knitting_received_lekra_chalan_id[]" style="width: 100%;">  
+                            <option value="">--Select Option--</option>  
+                            @foreach ($all_knitting_received_lekra_chalan_id as $send_chalan_id_slekra_brand)    
+                                <option value="{{$knitting_received_lekra_chalan_id->send_chalan_id}}">{{$knitting_received_lekra_chalan_id->send_chalan_id}}</option>  
+                            @endforeach
+                        </select>
+                        <span style="color:red" class="knitting_received_lekra_chalan_id_error"  id="knitting_received_lekra_chalan_id_error" ></span>
+                    </div>
+                </div> 
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label">Lekra Brand</label>
                     <div class="col-lg-9">
@@ -514,7 +585,36 @@
         $('#form_create_'+form_identity).remove();
 
     }
-    
+
+    weightstockcheck(1);
+    function weightstockcheck(count){
+        // console.log(count);
+        $('#weight_'+count).keyup(function(){
+            var weight= $('#weight_'+count).val();
+            // console.log(weight);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '/weightStockCount',
+                data: {
+                    'weight': weight,
+                },
+                success: function(data) {
+                    // alert(data);
+
+                }
+
+            });
+
+        });
+   
+    }
+
+
  </script>
     
 @endsection

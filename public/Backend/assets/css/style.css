@@ -971,7 +971,13 @@ button.bg-danger:hover {
 /*-----------------
 	5. Select2
 -----------------------*/
+.select2 .select2-container .select2-container--default{
 
+	width: 100% !important;
+}
+.select2-container {
+	width: 100% !important;
+}
 .select2-container .select2-selection--single {
 	border: 1px solid #ddd;
 	height: 40px;

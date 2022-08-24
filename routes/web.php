@@ -134,6 +134,7 @@ Route::POST('making-knitting-send-suta-brand-update', [MakingKnittingSendControl
 Route::get('/knittingSendSutaBrandDelete/{id}', [MakingKnittingSendController::class, 'sutaBrandDelete'])->name('SutaBrandDelete');
 Route::get('making-knitting-send-lekra-brand-edit/{all_lekra_brand_id}', [MakingKnittingSendController::class, 'lekraBrandEdit'])->name('lekraBrandEdit');
 Route::POST('making-knitting-send-lekra-brand-update', [MakingKnittingSendController::class, 'sendLekraBrandUpdate'])->name('sendlekraBrandUpdate');
+Route::post('weightStockCount', [MakingKnittingSendController::class, 'weightStockCount'])->name('weightStockCount');
 
 
 // MakingKnittingReceived

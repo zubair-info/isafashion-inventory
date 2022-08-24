@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\CompanyName;
 use App\Models\Kapor;
+use App\Models\KnittingReceivedLekraBrand;
+use App\Models\KnittingReceivedSutaBrand;
 use App\Models\KnittingSendLekraBrand;
 use App\Models\KnittingSendSutaBrand;
 use App\Models\LekraBrand;
@@ -29,6 +31,9 @@ class MakingKnittingSendController extends Controller
         $all_suta_name = Suta::get();
         $all_kapor_name = Kapor::get();
         $all_lekra_brand_name = LekraBrand::get();
+        $all_knitting_received_suta_chalan_id = KnittingReceivedSutaBrand::select('send_chalan_id', 'id')->get();
+        $all_knitting_received_lekra_chalan_id = KnittingReceivedLekraBrand::select('send_chalan_id', 'id')->get();
+        // return $all_send_chalan_id_suta_brand;
         // dd($all_company_name);
         // die();
         return view('admin.making.knitting-send.index', [
@@ -36,7 +41,9 @@ class MakingKnittingSendController extends Controller
             'all_brand_name' => $all_brand_name,
             'all_suta_name' => $all_suta_name,
             'all_kapor_name' => $all_kapor_name,
-            'all_lekra_brand_name' => $all_lekra_brand_name
+            'all_lekra_brand_name' => $all_lekra_brand_name,
+            'all_knitting_received_suta_chalan_id' => $all_knitting_received_suta_chalan_id,
+            'all_knitting_received_lekra_chalan_id' => $all_knitting_received_lekra_chalan_id
 
         ]);
     }
@@ -54,6 +61,7 @@ class MakingKnittingSendController extends Controller
 
         $form_count = $request->form_count;
         $suta_id = $request->suta_id;
+        $knitting_received_suta_chalan_id = $request->knitting_received_suta_chalan_id;
         $brand_id = $request->brand_id;
         $kapor_id = $request->kapor_id;
         $weight = $request->weight;
@@ -64,6 +72,7 @@ class MakingKnittingSendController extends Controller
             KnittingSendSutaBrand::insert([
                 'knitting_send_id' => $knitting_send_id->id,
                 'suta_id' => $suta_id[$i],
+                'knitting_received_suta_chalan_id' => $knitting_received_suta_chalan_id[$i],
                 'brand_id' => $brand_id[$i],
                 'kapor_id' => $kapor_id[$i],
                 'weight' => $weight[$i],
@@ -74,6 +83,7 @@ class MakingKnittingSendController extends Controller
         }
 
         $lekra_brand_form_count = $request->lekra_brand_form_count;
+        $knitting_received_lekra_chalan_id = $request->knitting_received_lekra_chalan_id;
         $lekra_cartoon = $request->lekra_cartoon;
         $lekra_brand_id = $request->lekra_brand;
         $lekra_rate = $request->lekra_rate;
@@ -81,6 +91,7 @@ class MakingKnittingSendController extends Controller
         for ($i = 0; $i < count($lekra_brand_form_count); $i++) {
             KnittingSendLekraBrand::insert([
                 'knitting_send_id' => $knitting_send_id->id,
+                'knitting_received_lekra_chalan_id' => $knitting_received_lekra_chalan_id[$i],
                 'lekra_cartoon' => $lekra_cartoon[$i],
                 'lekra_brand_id' => $lekra_brand_id[$i],
                 'lekra_rate' => $lekra_rate[$i],
@@ -264,5 +275,10 @@ class MakingKnittingSendController extends Controller
         // echo $id;
         KnittingSendLekraBrand::find($id)->delete();
         return response()->json(['success' => 'Delete sucessfull']);
+    }
+
+    function weightStockCount(Request $request)
+    {
+        echo $request->weight;
     }
 }

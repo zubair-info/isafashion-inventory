@@ -255,6 +255,14 @@
 								</ul>
 							</li>
 
+							<li class="submenu {{ Route::CurrentRouteName() == 'markatSend' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'markatSendShow' ? 'active' : '' }}">
+								<a href="#"><i class="fa fa-codepen"></i><span>Accesories</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{route('accesoriesInput')}}">Input</a></li>
+									<li><a href="{{route('markatSendShow')}}">Input Show</a></li>
+								</ul>
+							</li>
+
 							
 							
 							<li class="submenu ">

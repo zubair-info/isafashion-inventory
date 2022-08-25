@@ -82,6 +82,8 @@ class MakingKnittingSendController extends Controller
             ]);
         }
 
+
+
         $lekra_brand_form_count = $request->lekra_brand_form_count;
         $knitting_received_lekra_chalan_id = $request->knitting_received_lekra_chalan_id;
         $lekra_cartoon = $request->lekra_cartoon;
@@ -279,6 +281,21 @@ class MakingKnittingSendController extends Controller
 
     function weightStockCount(Request $request)
     {
-        echo $request->weight;
+        // $weight_stock_check =  KnittingReceivedSutaBrand::where('send_chalan_id', $request->send_chalan_id)->where('company_id', $request->company_id)->where('suta_id', $request->suta_id)->where('kapor_id', $request->kapor_id)->where('brand_id', $request->brand_id)->select('weight')->first();
+        $weight_stock_check =  KnittingReceivedSutaBrand::where('send_chalan_id', $request->send_chalan_id)->select('weight')->first();
+        if ($weight_stock_check->weight >= $request->weight) {
+            return response()->json(['success' => 'Stock In ' . $weight_stock_check->weight]);
+        } else {
+            return response()->json(['error' => 'Stock Out']);
+        }
+    }
+
+    function knittingReceivedSutaget(Request $request)
+    {
+        $knitting_received_suta = KnittingReceivedSutaBrand::where('send_chalan_id', $request->knitting_received_suta_chalan_id)->first();
+        return response()->json(['success' => $knitting_received_suta]);
+
+
+        // echo $request->knitting_received_suta_chalan_id;
     }
 }

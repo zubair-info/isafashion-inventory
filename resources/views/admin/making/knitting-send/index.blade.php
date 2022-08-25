@@ -87,7 +87,7 @@
                                         <label class="col-lg-3 col-form-label">Send Chalan Id</label>
                                         <div class="col-lg-9">
                                             
-                                            <select class="form-control select2_search  knitting_received_suta_chalan_id" id="knitting_received_suta_chalan_id"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
+                                            <select class="form-control select2_search  knitting_received_suta_chalan_id" id="knitting_received_suta_chalan_id_1"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
                                                 <option value="">--Select Option--</option>  
                                                 @foreach ($all_knitting_received_suta_chalan_id as $knitting_received_suta_chalan_id)    
                                                     <option value="{{$knitting_received_suta_chalan_id->send_chalan_id}}">{{$knitting_received_suta_chalan_id->send_chalan_id}}</option>  
@@ -329,6 +329,7 @@
         });
        
         function steptwocheck(){
+                  
             for(var i=1;  i < count; i++){                
                 var suta_id = $('#form_create_'+i+' .suta_id').val();
                 var brand_id = $('#form_create_'+i+' .brand_id').val();
@@ -362,6 +363,7 @@
                     $('#form_create_'+i+' #weight_error').text('Please enter your weight Id');
                     $('#form_create_'+i+' #weight').css('border','1px solid red');
                     $('#form_create_'+i+' #weight').focus();
+                    
                     return 0;
                 }else if(cartoon==''){
                     $('#form_create_'+i+' #cartoon_error').text('Please enter your cartoon Id');
@@ -373,7 +375,8 @@
                     $('#form_create_'+i+' #rate').css('border','1px solid red');
                     $('#form_create_'+i+' #rate').focus();
                     return 0;
-                }               
+                }    
+                weightstockcheck(count);           
             }
             return 1; 
         }
@@ -455,7 +458,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label">Send Chalan Id</label>
                     <div class="col-lg-9">
-                        <select class="form-control select2_search  knitting_received_suta_chalan_ids" id="knitting_received_suta_chalan_id"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
+                        <select class="form-control select2_search  knitting_received_suta_chalan_ids" id="knitting_received_suta_chalan_id_`+count+`"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
                             <option value="">--Select Option--</option>  
                             @foreach ($all_knitting_received_suta_chalan_id as $knitting_received_suta_chalan_id)    
                                 <option value="{{$knitting_received_suta_chalan_id->send_chalan_id}}">{{$knitting_received_suta_chalan_id->send_chalan_id}}</option>  
@@ -468,7 +471,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label">Name of Suta</label>
                     <div class="col-lg-9">
-                        <select class="form-control suta_id"  name="suta_id[]" required>  
+                        <select class="form-control suta_id"  name="suta_id[]" id='suta_id_`+count+`'>  
                             <option  value="">--Select Option--</option>  
                             @foreach ($all_suta_name as $suta)    
                                 <option value="{{$suta->id}}">{{$suta->suta_name}}</option>  
@@ -481,7 +484,7 @@
                     <label class="col-lg-3 col-form-label">Brand</label>
                     <div class="col-lg-9">
                     
-                        <select class="form-control brand_id"  name="brand_id[]" >  
+                        <select class="form-control brand_id"  name="brand_id[]" id='brand_id_`+count+`' >  
                             <option  value="">--Select Option--</option>  
                             @foreach ($all_brand_name as $brand)    
                                 <option value="{{$brand->id}}">{{$brand->brand_name}}</option>  
@@ -495,7 +498,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label">Kapor</label>
                     <div class="col-lg-9">
-                        <select class="form-control kapor"  name="kapor_id[]">  
+                        <select class="form-control kapor"  name="kapor_id[]" id='kapor_id_`+count+`'>  
                             <option  value="">--Select Option--</option>  
                             @foreach ($all_kapor_name as $kapor)    
                                 <option value="{{$kapor->id}}">{{$kapor->kapor_name}}</option>  
@@ -509,7 +512,7 @@
                     <label class="col-lg-3 col-form-label">Weight</label>
                     <div class="col-lg-9">
                         <input type="number"  step="any" class="form-control weight" name="weight[]" id='weight_`+count+`' placeholder="Enter Weight : 50">
-                        <span style="color:red"  id="weight_error" class="weight_error" ></span>
+                        <span style="color:red"  id="weight_error_`+count+`" class="weight_error" ></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -591,7 +594,12 @@
         // console.log(count);
         $('#weight_'+count).keyup(function(){
             var weight= $('#weight_'+count).val();
-            // console.log(weight);
+            var send_chalan_id = $('#weight_'+count).attr("send_chalan_id");
+            var company_id = $('#weight_'+count).attr("company_id");
+            var kapor_id = $('#weight_'+count).attr("kapor_id");
+            var suta_id = $('#weight_'+count).attr("suta_id");
+            var brand_id = $('#weight_'+count).attr("brand_id");
+            // console.log(send_chalan_id);
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -599,18 +607,79 @@
             });
             $.ajax({
                 type: 'POST',
+                dataType: "json",
                 url: '/weightStockCount',
                 data: {
                     'weight': weight,
+                    'company_id': company_id,
+                    'kapor_id': kapor_id,
+                    'suta_id': suta_id,
+                    'brand_id': brand_id,
+                    'send_chalan_id': send_chalan_id,
                 },
                 success: function(data) {
-                    // alert(data);
-
-                }
+                    // alert(data.success.send_chalan_id);
+                    if(data.success){
+                    $('#weight_error_'+count).text(data.success);
+                    $('#weight_'+count).css('border','1px solid green');
+                    $('#weight_'+count).focus();
+                    $('#weight_error').text(data.success);
+                    $('#weight').css('border','1px solid green');
+                    $('#weight').focus();
+                    }else{
+                        $('#weight_error_'+count).text(data.error);
+                        $('#weight_'+count).css('border','1px solid red');
+                        $('#weight_'+count).focus();
+                        $('#weight_error').text(data.error);
+                        $('#weight').css('border','1px solid red');
+                        $('#weight').focus();                  
+                    }     
+                return 0;
+               }
 
             });
-
         });
+ 
+        knittingReceivedChalan(1);
+        function knittingReceivedChalan(){
+
+            $('#knitting_received_suta_chalan_id_'+count).change(function(){
+                var knitting_received_suta_chalan_id= $('#knitting_received_suta_chalan_id_'+count).val();
+                    // alert(knitting_received_suta_chalan_id);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    dataType: "json",
+                    url: '/knittingReceivedSutaget',
+                    data: {
+                        'knitting_received_suta_chalan_id': knitting_received_suta_chalan_id,
+                    },
+                    success: function(data) {
+                        // alert(data.success.kapor_id);
+
+                        $('#weight_'+count).attr('brand_id',data.success.brand_id);
+                        $('#weight_1').attr('brand_id',data.success.brand_id);
+                        $('#weight_'+count).attr('send_chalan_id',data.success.send_chalan_id);
+                        $('#weight_1').attr('send_chalan_id',data.success.send_chalan_id);
+                        $('#weight_'+count).attr('company_id',data.success.company_id);
+                        $('#weight_1').attr('company_id',data.success.company_id);
+                        $('#weight_'+count).attr('kapor_id',data.success.kapor_id);
+                        $('#weight_1').attr('kapor_id',data.success.kapor_id);
+                        $('#weight_'+count).attr('suta_id',data.success.suta_id);
+                        $('#weight_1').attr('suta_id',data.success.suta_id);
+                    }
+
+                });
+            });
+        }
+        knittingReceivedChalan();
+
+        
    
     }
 

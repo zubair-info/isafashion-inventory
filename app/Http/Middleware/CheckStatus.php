@@ -10,17 +10,24 @@ use Illuminate\Http\Request;
 class CheckStatus
 {
 
-    // public function handle(Request $request, Closure $next)
-    // {
+    public function handle(Request $request, Closure $next)
+    {
 
-    //     // if (Auth::user()->status == 0) {
-    //     //     // return redirect('/login');
-    //     //     echo 'ok';
-    //     // } else {
-    //     //     return $next($request);
-    //     // }
-    //     return Auth::user()->status;
-    // }
+        if (Auth::check()) {
+            if (Auth::user()->status == 0) {
+                Auth::logout();
+                return redirect('/login')->with('inactive_status', 'You Are Not Active');
+            }
+            return $next($request);
+        }
+        // if (Auth::user()->status == 0) {
+        //     // return redirect('/login');
+        //     echo 'ok';
+        // } else {
+        //     return $next($request);
+        // }
+        // return Auth::user()->status;
+    }
 
     // public function handle($request, Closure $next)
     // {

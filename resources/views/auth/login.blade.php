@@ -38,7 +38,10 @@
                         <div class="login-right">
 							<div class="login-right-wrap">
 								<h1>Login</h1>
-								<p class="account-subtitle">Access to our dashboard</p>
+								<p class="account-subtitle">Access to Our Dashboard</p>
+								@if (session('inactive_status'))
+									<div class="alert alert-danger">{{session('inactive_status')}}</div>			
+								@endif
 								
 								<!-- Form -->
 								<form action="{{ route('login') }}" method="POST">

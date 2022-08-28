@@ -44,7 +44,7 @@ Auth::routes();
 // Route::get('protected', ['middleware' => ['auth', 'status']], [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('check_status')->name('home');
 //profile
 Route::get('/user/list', [HomeController::class, 'userList'])->name('user');
 Route::get('/userDelete/{id}', [HomeController::class, 'userDelete'])->name('user.delete');

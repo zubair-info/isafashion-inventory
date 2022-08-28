@@ -112,7 +112,7 @@
                                
                             </table>
                             <br>
-                            <table class="datatable table table-stripped">
+                            <table class="table table-stripped">
                                 <h4> Accessories Output List</h4>
                                 <hr>
                                 <br>

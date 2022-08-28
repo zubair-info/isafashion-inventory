@@ -90,10 +90,10 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="datatable table table-stripped">
+                            <table class="table table-stripped">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        {{-- <th>Id</th> --}}
                                         <th>Product Name</th>
                                         <th>Total Qty</th>
 
@@ -104,13 +104,17 @@
 
                                     <tbody>
                                       <tr>
-                                            <td>{{$key+1}}</td>
+                                            {{-- <td>{{$key+1}}</td> --}}
                                             @php
                                                $stock_last_value=  App\Models\Accesories::where('product_name',$accesories_name->product_name)->orderBy('created_at', 'DESC')->first();
                                             //  print_r($stock_last_value)
                                             @endphp
+                                            @if (isset($stock_last_value))
+                                                
+                                            
                                             <td>{{$stock_last_value->product_name}}</td>
                                             <td>{{$stock_last_value->stock}}</td>
+                                            @endif
       
                                          </tr>                         
                                     </tbody>
@@ -121,10 +125,10 @@
                             <br>
                             <h4 class="card-title">Acessories Input List</h4>
                             <hr>
-                            <table class="datatable table table-stripped">
+                            <table class="table table-stripped">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        {{-- <th>Id</th> --}}
                                         <th>Date</th>
                                         <th>Product Name</th>
                                         <th>Total Price</th>
@@ -144,31 +148,32 @@
                                             $stock_last_value=  App\Models\Accesories::where('product_name',$accesories_name->product_name)->orderBy('created_at', 'DESC')->first();
                                             //  print_r($stock_last_value)
                                             @endphp
-                                            @if($stock_last_value->spend==NULL)
-                                            <td>{{$stock_last_value->id}}</td>
-                                            <td>{{$stock_last_value->created_at->format('d-M-Y')}}</td>
-                                            <td>{{$stock_last_value->product_name}}</td>
-                                            <td>{{$stock_last_value->total_price}}</td>
-                                            <td>{{$stock_last_value->total_qty}}</td>
-                                            <td>{{$stock_last_value->single_price}}</td>
-                                            <td>{{$stock_last_value->description}}</td>
-                                            <td class="text-left">                                              
-                                                <div class="actions">
-                                                
-                                                    <a  class="btn btn-sm bg-danger-light" href="{{route('accessoriesInputEdit',$stock_last_value->id)}}">
-                                                        <i class="fe fe-pencil"></i> Edit
-                                                    </a>
+                                             @if (isset($stock_last_value))
+                                                @if($stock_last_value->spend==NULL)
+                                                {{-- <td>{{$stock_last_value->id}}</td> --}}
+                                                <td>{{$stock_last_value->created_at->format('d-M-Y')}}</td>
+                                                <td>{{$stock_last_value->product_name}}</td>
+                                                <td>{{$stock_last_value->total_price}}</td>
+                                                <td>{{$stock_last_value->total_qty}}</td>
+                                                <td>{{$stock_last_value->single_price}}</td>
+                                                <td>{{$stock_last_value->description}}</td>
+                                                <td class="text-left">                                              
+                                                    <div class="actions">
                                                     
-                                                    <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$stock_last_value->id}}">
-                                                        <i class="fe fe-trash"></i> Delete
-                                                    </a>
-                                                
-                                                </div>                                            
-                                            </td> 
-                                            @endif
-                                            
-                                                <!-- Delete Modal -->
-                                                <div class="modal fade delete_modal" id="delete_modal_{{$stock_last_value->id}}" aria-hidden="true" role="dialog">
+                                                        <a  class="btn btn-sm bg-danger-light" href="{{route('accessoriesInputEdit',$stock_last_value->id)}}">
+                                                            <i class="fe fe-pencil"></i> Edit
+                                                        </a>
+                                                        
+                                                        <a  class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal_{{$stock_last_value->id}}">
+                                                            <i class="fe fe-trash"></i> Delete
+                                                        </a>
+                                                    
+                                                    </div>                                            
+                                                </td> 
+                                                @endif
+
+                                                 <!-- Delete Modal -->
+                                                 <div class="modal fade delete_modal" id="delete_modal_{{$stock_last_value->id}}" aria-hidden="true" role="dialog">
                                                     <div class="modal-dialog modal-dialog-centered" role="document" >
                                                         <div class="modal-content">
                                                             <div class="modal-body">
@@ -183,6 +188,9 @@
                                                     </div>
                                                 </div>
                                             <!-- /Delete Modal -->
+                                            @endif
+                                            
+                                               
                                         
     
                                         </tr>                         

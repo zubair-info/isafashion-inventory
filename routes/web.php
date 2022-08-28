@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccesoriesController;
 use App\Http\Controllers\AccesoriesOutputController;
+use App\Http\Controllers\AccessoriesNameController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CompanyNameController;
 use App\Http\Controllers\CuttingReceivedController;
@@ -62,6 +63,13 @@ Route::post('company-name-store', [CompanyNameController::class, 'store'])->name
 Route::get('company-name-edit/{id}', [CompanyNameController::class, 'edit'])->name('CompanyNameEdit');
 Route::post('company-name-update', [CompanyNameController::class, 'update'])->name('companyUpdate');
 Route::get('/companyDelete/{id}', [CompanyNameController::class, 'destroy'])->name('companyDelete');
+
+// accessories name
+Route::get('accessories-name', [AccessoriesNameController::class, 'index'])->name('accessoriesName');
+Route::post('accessories-name-store', [AccessoriesNameController::class, 'store'])->name('accessoriesNameStore');
+Route::get('accessories-name-edit/{id}', [AccessoriesNameController::class, 'edit'])->name('accessoriesNameEdit');
+Route::post('accessories-name-update', [AccessoriesNameController::class, 'update'])->name('accessoriesUpdate');
+Route::get('/accessoriesDelete/{id}', [AccessoriesNameController::class, 'destroy'])->name('accessoriesDelete');
 
 
 

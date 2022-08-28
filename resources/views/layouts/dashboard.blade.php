@@ -164,13 +164,15 @@
                             <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
 								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> User</span></a>
 							</li>	
-                            <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
-								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> Accessories Name</span></a>
-							</li>	
+							{{-- <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
+								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> Company Name</span></a>
+							</li>	 --}}
+                       
 							
 							<li class="{{ Route::CurrentRouteName() == 'companyName' ? 'active' : '' }}">
-								<a href="{{route('companyName')}}"><i class="fa fa-building-o" aria-hidden="true"></i> <span>Company Name</span></a>
+								<a href="{{ route('companyName') }}"><i class="fa fa-building-o" aria-hidden="true"></i> <span>Company Name</span></a>
 							</li>
+
 							<li class="{{ Route::CurrentRouteName() == 'brandName' ? 'active' : '' }}"> 
 								<a href="{{route('brandName')}}"><i class="fa fa-bitcoin"></i> <span>Brand Name</span></a>
 							</li>
@@ -183,6 +185,13 @@
 							<li class="{{ Route::CurrentRouteName() == 'lekraBrandName' ? 'active' : '' }}"> 
 								<a href="{{route('lekraBrandName')}}"><i class="fa fa-black-tie"></i> <span>Lekra Brand </span></a>
 							</li>
+							<li class="{{ Route::CurrentRouteName() == 'accessoriesName' ? 'active' : '' }}">
+								<a href="{{ route('accessoriesName') }}"><i class="fa fa-archive" aria-hidden="true"></i><span> Accessories Name</span></a>
+							</li>	
+							<li class="{{ (request()->is('accesoriesInput')) ? 'active' : '' }}"> 
+								<a href="{{route('accesoriesInput')}}"><i class="fa fa-archive" aria-hidden="true"></i><span>Accessories</span></a>
+							</li>
+
 							<li class="submenu {{ Route::CurrentRouteName() == 'knittingreceivedSutaBrand' ? 'active' : '' }} ||  {{ Route::CurrentRouteName() == 'KnittingSutaBrandShow' ? 'active' : '' }}">
 								<a href="#"><i class="fa fa-usd"></i><span>Received Suta</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
@@ -257,10 +266,7 @@
 									<li><a href="{{route('markatSendShow')}}">Markat Show</a></li>
 								</ul>
 							</li>
-							<li class="{{ (request()->is('accesoriesInput')) ? 'active' : '' }}"> 
-								<a href="{{route('accesoriesInput')}}"><i class="fe fe-home"></i> <span>Input</span></a>
-							</li>
-
+							
 							<li class="submenu ">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">

@@ -6,10 +6,8 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="page-title">Welcome Admin!</h3>
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ul>
+                <h3 class="page-title">Edit Company Form</h3>
+
             </div>
         </div>
     </div>
@@ -19,9 +17,6 @@
         <div class="col-xl-4 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-header">
-                        <h4 class="card-title">Edit Company Form</h4>
-                    </div>
                     <div class="card-body">
                         <form action="{{route('companyUpdate')}}" method="post">
                             @csrf

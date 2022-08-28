@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccesoriesController;
+use App\Http\Controllers\AccesoriesOutputController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CompanyNameController;
 use App\Http\Controllers\CuttingReceivedController;
@@ -244,8 +246,17 @@ Route::post('markat-send-multiple-update', [MarkatSendController::class, 'markat
 Route::get('markat-send-generate-pdf-view/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFView'])->name('markatSendPDFView');
 Route::get('markat-send-generate-pdf-download/{markat_send_id}', [MarkatSendController::class, 'markatSendPDFDownload'])->name('markatSendPDFDownload');
 
-
-
+//accesories-input
+Route::get('accesories-input', [AccesoriesController::class, 'accesoriesInput'])->name('accesoriesInput');
+Route::post('accesories-input-store', [AccesoriesController::class, 'accessoriesInputStore'])->name('accessoriesInputStore');
+Route::get('accesories-input-edit/{accessories_input_id}', [AccesoriesController::class, 'accessoriesInputEdit'])->name('accessoriesInputEdit');
+Route::post('accesories-input-update', [AccesoriesController::class, 'accessoriesInputUpdate'])->name('accessoriesInputUpdate');
+Route::get('/accessoriesInputDelete/{id}', [AccesoriesController::class, 'accessoriesInputDelete'])->name('accessoriesInputDelete');
+Route::get('/inputProductNameSearch/{input_product_name_search}', [AccesoriesController::class, 'inputProductNameSearch'])->name('inputProductNameSearch');
+Route::get('accesories-output-add', [AccesoriesController::class, 'accessoriesOutputAdd'])->name('accessoriesOutputAdd');
+Route::post('accesories-output-store', [AccesoriesController::class, 'accessoriesOutputStore'])->name('accessoriesOutputStore');
+Route::get('accesories-output-edit/{accessories_output_id}', [AccesoriesController::class, 'accessoriesOutputEdit'])->name('accessoriesOutputEdit');
+Route::post('accesories-output-update', [AccesoriesController::class, 'accessoriesOutputUpdate'])->name('accessoriesOutputUpdate');
 
 Route::get('/clear', function () {
     $output = new \Symfony\Component\Console\Output\BufferedOutput();

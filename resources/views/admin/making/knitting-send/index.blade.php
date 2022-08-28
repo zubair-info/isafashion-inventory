@@ -43,7 +43,7 @@
                             @csrf
                             <div class="form_step_one" id="form_step_one">
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                                    <label class="col-lg-3 col-form-label">Knitting Send Chalan No</label>
                                     <div class="col-lg-9">
                                         <input type="number" id="send_chalan_id" name="send_chalan_id" class="form-control" placeholder="Chalan Id : 11097">
                                         <span style="color:red"  class="send_chalan_id_error" id="send_chalan_id_error" ></span> 
@@ -84,7 +84,7 @@
                                     <input type="hidden" name="form_count[]" value="1" class="form-control"> 
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                                        <label class="col-lg-3 col-form-label">Suta Chalan No</label>
                                         <div class="col-lg-9">
                                             
                                             <select class="form-control select2_search  knitting_received_suta_chalan_id" id="knitting_received_suta_chalan_id_1"  name="knitting_received_suta_chalan_id[]" style="width: 100%;">  
@@ -183,7 +183,7 @@
                                 <input type="hidden" name="lekra_brand_form_count[]" value="1" class="form-control"> 
                                 <div class="form_create" id="form_create_1" lekra_brand_form_count="1"> 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Send Chalan Id</label>
+                                        <label class="col-lg-3 col-form-label">Lekra Chalan No</label>
                                         <div class="col-lg-9">                                          
                                             <select class="form-control select2_search  knitting_received_lekra_chalan_id" id="knitting_received_lekra_chalan_id"  name="knitting_received_lekra_chalan_id[]" style="width: 100%;">  
                                                 <option value="">--Select Option--</option>  

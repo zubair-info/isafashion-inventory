@@ -164,6 +164,9 @@
                             <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
 								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> User</span></a>
 							</li>	
+                            <li class="{{ Route::CurrentRouteName() == 'user' ? 'active' : '' }}">
+								<a href="{{ route('user') }}"><i class="fa fa-user" aria-hidden="true"></i> <span> Accessories Name</span></a>
+							</li>	
 							
 							<li class="{{ Route::CurrentRouteName() == 'companyName' ? 'active' : '' }}">
 								<a href="{{route('companyName')}}"><i class="fa fa-building-o" aria-hidden="true"></i> <span>Company Name</span></a>
@@ -254,17 +257,10 @@
 									<li><a href="{{route('markatSendShow')}}">Markat Show</a></li>
 								</ul>
 							</li>
-
-							<li class="submenu {{ Route::CurrentRouteName() == 'markatSend' ? 'active' : '' }} || {{ Route::CurrentRouteName() == 'markatSendShow' ? 'active' : '' }}">
-								<a href="#"><i class="fa fa-codepen"></i><span>Accesories</span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="{{route('accesoriesInput')}}">Input</a></li>
-									<li><a href="{{route('markatSendShow')}}">Input Show</a></li>
-								</ul>
+							<li class="{{ (request()->is('accesoriesInput')) ? 'active' : '' }}"> 
+								<a href="{{route('accesoriesInput')}}"><i class="fe fe-home"></i> <span>Input</span></a>
 							</li>
 
-							
-							
 							<li class="submenu ">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
